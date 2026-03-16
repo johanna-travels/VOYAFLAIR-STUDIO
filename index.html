@@ -13,112 +13,104 @@
         #side-menu { transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1); }
     </style>
 </head>
-<body class="bg-white text-slate-900 overflow-x-hidden">
+<body>
+    <header class="fixed top-0 left-0 z-40 flex w-full items-center justify-between p-8 text-white mix-blend-difference md:px-12">
+  <div class="text-[10px] font-light tracking-[0.4em] uppercase opacity-70">Est. 2026</div>
+  <button id="menu-open" class="text-[10px] tracking-[0.4em] uppercase transition-colors duration-300 hover:text-white/60">Menu</button>
+</header>
 
-    <nav class="fixed top-0 w-full z-50 flex justify-between items-center px-6 py-8 md:px-12 transition-all">
-        <div class="text-2xl font-light tracking-[0.3em] uppercase mix-blend-difference text-white">
-            <a href="index.html">VOYAFLAIR</a>
-        </div>
-        
-        <button id="menu-btn" class="group z-[60] flex flex-col gap-1.5 p-2 focus:outline-none">
-            <div id="line1" class="w-8 h-px bg-white mix-blend-difference transition-all duration-300"></div>
-            <div id="line2" class="w-8 h-px bg-white mix-blend-difference transition-all duration-300"></div>
-        </button>
-    </nav>
+<div id="side-menu" class="fixed top-0 right-0 z-50 flex h-screen w-full translate-x-full transform flex-col justify-center border-l border-white/5 bg-zinc-950 px-12 transition-transform duration-[800ms] ease-[cubic-bezier(0.7,0,0.3,1)] md:w-[450px] md:px-20">
+  <button id="menu-close" class="absolute top-8 right-8 text-[10px] tracking-[0.4em] text-white/40 uppercase transition-colors duration-300 hover:text-white md:right-12">Close</button>
 
-    <div id="side-menu" class="fixed top-0 right-0 h-full w-full md:w-[450px] bg-slate-50 z-[55] translate-x-full shadow-2xl flex flex-col justify-center p-12">
-        <div class="space-y-8">
-            <div>
-                <button id="works-toggle" class="serif text-5xl italic hover:text-slate-500 transition-all flex items-center gap-4 focus:outline-none">
-                    works <span class="text-sm tracking-widest not-italic text-slate-300">+</span>
-                </button>
-                <div id="works-submenu" class="hidden flex-col mt-6 ml-4 space-y-4 border-l border-slate-200 pl-6">
-                    <a href="pages/boutique-hotels.html" class="text-xs uppercase tracking-[0.3em] text-slate-500 hover:text-slate-900">Boutique Hotels</a>
-                    <a href="pages/coastal-resorts.html" class="text-xs uppercase tracking-[0.3em] text-slate-500 hover:text-slate-900">Coastal Resorts</a>
-                    <a href="pages/urban-escapes.html" class="text-xs uppercase tracking-[0.3em] text-slate-500 hover:text-slate-900">Urban Escapes</a>
-                    <a href="pages/desert-lodges.html" class="text-xs uppercase tracking-[0.3em] text-slate-500 hover:text-slate-900">Desert Lodges</a>
-                </div>
-            </div>
-            <a href="#about" class="nav-link serif text-5xl italic hover:text-slate-500 block">about</a>
-            <a href="contact.html" class="nav-link serif text-5xl italic text-slate-300 hover:text-slate-900 block">contact</a>
-        </div>
-        
-        <div class="mt-20 pt-12 border-t border-slate-200">
-            <p class="text-[10px] uppercase tracking-widest text-slate-400">socials</p>
-            <div class="flex gap-4 mt-4 text-xs tracking-widest uppercase">
-                <a href="#" class="hover:text-slate-900">Instagram</a> / <a href="#" class="hover:text-slate-900">Vimeo</a>
-            </div>
-        </div>
+  <nav class="flex flex-col gap-8">
+    <a href="#" class="group flex items-center gap-4 text-4xl font-extralight tracking-[0.1em] text-white/50 uppercase transition-all duration-500 hover:text-white">
+      <span class="text-[10px] tracking-[0.2em] opacity-0 transition-opacity duration-500 group-hover:opacity-100">01</span>
+      Work
+    </a>
+    <a href="#" class="group flex items-center gap-4 text-4xl font-extralight tracking-[0.1em] text-white/50 uppercase transition-all duration-500 hover:text-white">
+      <span class="text-[10px] tracking-[0.2em] opacity-0 transition-opacity duration-500 group-hover:opacity-100">02</span>
+      Studio
+    </a>
+    <a href="#" class="group flex items-center gap-4 text-4xl font-extralight tracking-[0.1em] text-white/50 uppercase transition-all duration-500 hover:text-white">
+      <span class="text-[10px] tracking-[0.2em] opacity-0 transition-opacity duration-500 group-hover:opacity-100">03</span>
+      Contact
+    </a>
+  </nav>
+
+  <div class="absolute bottom-12 left-12 text-[9px] tracking-[0.3em] text-white/30 uppercase md:left-20">
+    <p>Voyaflair &copy; 2026</p>
+  </div>
+</div>
+
+<main class="relative h-screen w-full overflow-hidden bg-black text-white antialiased">
+  
+  <div class="absolute inset-0 z-0">
+    <img src="https://images.unsplash.com/photo-1494145904049-0dca59b4bbad?q=80&w=2000" alt="Cinematic Background" class="animate-slow-zoom h-full w-full scale-105 object-cover opacity-50" />
+    <div class="absolute inset-0 bg-gradient-to-b from-black/70 via-black/20 to-black/80"></div>
+  </div>
+
+  <div class="animate-fade-in relative z-10 flex h-full w-full items-center px-8 md:px-0">
+    <div class="flex w-full flex-col items-start justify-center md:items-center">
+      <h1 class="font-extralight tracking-[0.3em] uppercase transition-all duration-1000">
+        <span class="block text-6xl md:hidden">VF</span>
+        <span class="hidden text-7xl md:block lg:text-9xl">Voyaflair</span>
+      </h1>
+
+      <div class="mt-6 flex flex-col items-start gap-5 md:items-center">
+        <span class="h-[1px] w-12 bg-white/40"></span>
+        <p class="max-w-[280px] text-left text-[9px] font-light tracking-[0.5em] text-white/50 uppercase md:max-w-none md:text-center md:text-xs">Cinematic Studio & Travel Aesthetics</p>
+      </div>
     </div>
+  </div>
+</main>
 
-    <section class="relative h-screen w-full overflow-hidden bg-black">
-        <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&q=80&w=2000" 
-             class="absolute inset-0 w-full h-full object-cover opacity-60 scale-105" alt="Hero">
-        <div class="relative h-full flex flex-col justify-center items-center text-center px-6">
-            <h1 class="serif text-5xl md:text-8xl text-white italic font-light tracking-tight leading-tight">
-                capturing the essence <br>of slow travel.
-            </h1>
-        </div>
-    </section>
+<style>
+  @keyframes slow-zoom {
+    0% { transform: scale(1); }
+    100% { transform: scale(1.15); }
+  }
+  .animate-slow-zoom {
+    animation: slow-zoom 30s linear infinite alternate;
+  }
 
-    <main class="max-w-7xl mx-auto px-6 py-24 md:py-40">
-        <section id="about" class="max-w-3xl mb-40">
-            <p class="text-xl md:text-3xl font-light leading-relaxed text-slate-700 italic serif">
-                Based in Johannesburg, VOYAFLAIR is an editorial creative studio specializing in visual storytelling for luxury hospitality. We craft narratives that bridge the gap between architectural precision and raw emotion.
-            </p>
-        </section>
+  @keyframes fade-in {
+    0% { opacity: 0; transform: translateY(20px); }
+    100% { opacity: 1; transform: translateY(0); }
+  }
+  .animate-fade-in {
+    animation: fade-in 2s ease-out forwards;
+  }
+</style>
 
-        <section id="work" class="grid grid-cols-1 md:grid-cols-2 gap-16">
-            <div class="group cursor-pointer">
-                <div class="overflow-hidden aspect-[3/4] mb-8 bg-slate-100">
-                    <img src="https://images.unsplash.com/photo-1523906834658-6e24ef2386f9?q=80&w=1000" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000">
-                </div>
-               
-            <div class="group cursor-pointer md:mt-40">
-                <div class="overflow-hidden aspect-[3/4] mb-8 bg-slate-100">
-                    <img src="https://images.unsplash.com/photo-1555109307-f7d9da25c244?q=80&w=1000" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000">
-                </div>
-                
-            </div>
-        </section>
-    </main>
+<script>
+  const btnOpen = document.getElementById('menu-open');
+  const btnClose = document.getElementById('menu-close');
+  const sideMenu = document.getElementById('side-menu');
+  const menuItems = document.querySelectorAll('.menu-item');
 
-    <footer class="py-20 border-t border-slate-50 text-center text-[9px] uppercase tracking-[0.4em] text-slate-400">
-        © 2026 VOYAFLAIR STUDIO / JOHANNESBURG
-    </footer>
+  btnOpen.addEventListener('click', () => {
+    // 1. Ξεκινάει να μπαίνει η μαύρη κουρτίνα (κάνει 800ms)
+    sideMenu.classList.remove('translate-x-full');
+    
+    // 2. Περιμένουμε 500ms να φανεί λίγο το μενού και ΜΕΤΑ δίνουμε το σύνθημα στα γράμματα!
+    setTimeout(() => {
+      menuItems.forEach(item => {
+        item.classList.remove('opacity-0', 'translate-y-8');
+        item.classList.add('opacity-100', 'translate-y-0');
+      });
+    }, 500);
+  });
 
-    <script>
-        const btn = document.getElementById('menu-btn');
-        const menu = document.getElementById('side-menu');
-        const l1 = document.getElementById('line1');
-        const l2 = document.getElementById('line2');
-        const worksToggle = document.getElementById('works-toggle');
-        const worksSubmenu = document.getElementById('works-submenu');
-
-        // Toggle Main Menu
-        btn.onclick = () => {
-            const isOpen = menu.classList.contains('translate-x-0');
-            if (isOpen) {
-                menu.classList.replace('translate-x-0', 'translate-x-full');
-                l1.classList.remove('rotate-45', 'translate-y-[4px]', 'bg-slate-900');
-                l2.classList.remove('-rotate-45', '-translate-y-[4px]', 'bg-slate-900');
-            } else {
-                menu.classList.replace('translate-x-full', 'translate-x-0');
-                l1.classList.add('rotate-45', 'translate-y-[4px]', 'bg-slate-900');
-                l2.classList.add('-rotate-45', '-translate-y-[4px]', 'bg-slate-900');
-            }
-        };
-
-        // Toggle Works Submenu
-        worksToggle.onclick = () => {
-            worksSubmenu.classList.toggle('hidden');
-            worksSubmenu.classList.toggle('flex');
-        };
-
-        // Close menu on link click
-        document.querySelectorAll('.nav-link').forEach(link => {
-            link.onclick = () => menu.classList.replace('translate-x-0', 'translate-x-full');
-        });
-    </script>
+  btnClose.addEventListener('click', () => {
+    // 1. Κλείνει η μαύρη κουρτίνα
+    sideMenu.classList.add('translate-x-full');
+    
+    // 2. Κρύβουμε τα γράμματα αμέσως για να είναι έτοιμα την επόμενη φορά
+    menuItems.forEach(item => {
+      item.classList.add('opacity-0', 'translate-y-8');
+      item.classList.remove('opacity-100', 'translate-y-0');
+    });
+  });
+</script>
 </body>
 </html>
