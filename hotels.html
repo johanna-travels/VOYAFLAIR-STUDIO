@@ -3,31 +3,79 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Work | Boutique Hotels - Voyaflair</title>
+    <title>Hotels | Voyaflair Cinematic</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;1,400&family=Inter:wght@300;400&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .serif { font-family: 'Playfair Display', serif; }
+        @keyframes fade-up {
+            0% { opacity: 0; transform: translateY(30px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fade-up { animation: fade-up 1.2s ease-out forwards; }
+    </style>
 </head>
 <body class="bg-black text-white antialiased font-light">
-    <nav class="fixed top-0 left-0 z-50 w-full p-8 md:px-12">
-        <a href="index.html" class="text-[10px] tracking-[0.4em] uppercase text-white/40 hover:text-white transition-colors">
-            ← Back to Home
-        </a>
+
+    <nav class="fixed top-0 left-0 z-50 flex w-full justify-between p-8 mix-blend-difference">
+        <a href="index.html" class="text-[10px] tracking-[0.4em] uppercase opacity-50 hover:opacity-100 transition-opacity">← Back</a>
+        <div class="text-[10px] tracking-[0.4em] uppercase opacity-50">Hotels / 2026</div>
     </nav>
-    <header class="pt-32 pb-16 px-8 md:px-20">
-        <h1 class="text-4xl md:text-6xl font-extralight tracking-[0.2em] uppercase">Boutique Hotels</h1>
-        <p class="mt-4 text-zinc-500 text-[10px] tracking-[0.4em] uppercase">Curated Stays & Architectural Visuals</p>
-    </header>
-    <main class="px-8 md:px-20 pb-20">
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 text-zinc-400">
-            <div class="group cursor-pointer">
-                <di         overflo           -zinc-900 asp                <di                        <di         overflo           -zinc-900 asp              94                <di         overflo    ect-cover opaci                <di         overflo           -zinc-tran      -a                <di         overflo           -zinc-90               <div class="mt-4 flex justify-between items-end">
-                    <div>
-                        <h3 class="text-sm tracking-[0.2em] uppercase text-white">The Minimalist Retreat</h3>
-                        <p class="text-[9px] tracking-[0.1em] mt-1">Santorini, Greece</p>
-                    </div>
-                    <span class="text-[10px] text-zinc-600 uppercase italic">2026</span>
+
+    <main class="pt-32 px-6 md:px-12 pb-24">
+        
+        <header class="max-w-3xl mb-20 animate-fade-up">
+            <h1 class="text-5xl md:text-7xl font-extralight tracking-tighter leading-none uppercase serif italic">The Stay.</h1>
+            <p class="mt-6 text-sm md:text-base text-zinc-500 max-w-md leading-relaxed tracking-wide font-light">
+                Capturing the soul of architectural gems. From sun-drenched Santorini suites to hidden urban lofts.
+            </p>
+        </header>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            
+            <div class="group relative animate-fade-up" style="animation-delay: 0.2s;">
+                <div class="aspect-[4/5] overflow-hidden bg-zinc-900 rounded-sm">
+                    <img src="https://images.unsplash.com/photo-1571896349842-33c89424de2d?q=80&w=1000" 
+                         class="w-full h-full object-cover opacity-70 group-hover:scale-105 group-hover:opacity-100 transition-all duration-[1.5s] ease-out" 
+                         alt="Hotel Reel">
+                </div>
+                <div class="mt-4">
+                    <h3 class="text-[11px] tracking-[0.3em] uppercase">Aegean Twilight</h3>
+                    <p class="text-[9px] text-zinc-600 tracking-[0.2em] mt-1 italic">Vogue Greece / Interiors</p>
                 </div>
             </div>
+
+            <div class="group relative animate-fade-up" style="animation-delay: 0.4s;">
+                <div class="aspect-[4/5] overflow-hidden bg-zinc-900 rounded-sm">
+                    <img src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?q=80&w=1000" 
+                         class="w-full h-full object-cover opacity-70 group-hover:scale-105 group-hover:opacity-100 transition-all duration-[1.5s] ease-out" 
+                         alt="Hotel Reel">
+                </div>
+                <div class="mt-4">
+                    <h3 class="text-[11px] tracking-[0.3em] uppercase">Metropolitan Loft</h3>
+                    <p class="text-[9px] text-zinc-600 tracking-[0.2em] mt-1 italic">Urban Aesthetics</p>
+                </div>
+            </div>
+
+            <div class="group relative animate-fade-up" style="animation-delay: 0.6s;">
+                <div class="aspect-[4/5] overflow-hidden bg-zinc-900 rounded-sm">
+                    <img src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?q=80&w=1000" 
+                         class="w-full h-full object-cover opacity-70 group-hover:scale-105 group-hover:opacity-100 transition-all duration-[1.5s] ease-out" 
+                         alt="Hotel Reel">
+                </div>
+                <div class="mt-4">
+                    <h3 class="text-[11px] tracking-[0.3em] uppercase">The Aman Vibe</h3>
+                    <p class="text-[9px] text-zinc-600 tracking-[0.2em] mt-1 italic">Slow Living</p>
+                </div>
+            </div>
+
         </div>
     </main>
+
+    <footer class="p-12 text-center border-t border-white/5">
+        <p class="text-[8px] tracking-[0.5em] text-zinc-600 uppercase font-light">Voyaflair Studio © 2026</p>
+    </footer>
+
 </body>
 </html>
