@@ -22,20 +22,37 @@
 <div id="side-menu" class="fixed top-0 right-0 z-50 flex h-screen w-full translate-x-full transform flex-col justify-center border-l border-white/5 bg-zinc-950 px-12 transition-transform duration-[800ms] ease-[cubic-bezier(0.7,0,0.3,1)] md:w-[450px] md:px-20">
   <button id="menu-close" class="absolute top-8 right-8 text-[10px] tracking-[0.4em] text-white/40 uppercase transition-colors duration-300 hover:text-white md:right-12">Close</button>
 
-  <nav class="flex flex-col gap-8">
-    <a href="#" class="group flex items-center gap-4 text-4xl font-extralight tracking-[0.1em] text-white/50 uppercase transition-all duration-500 hover:text-white">
+ <nav class="flex flex-col gap-6">
+  <div class="menu-item opacity-0 translate-y-8 transition-all duration-700 delay-300">
+    <button id="work-toggle" class="group flex items-center gap-4 text-4xl font-extralight tracking-[0.1em] text-white/50 uppercase transition-all duration-500 hover:text-white">
       <span class="text-[10px] tracking-[0.2em] opacity-0 transition-opacity duration-500 group-hover:opacity-100">01</span>
       Work
-    </a>
+      <span class="text-xs ml-2 opacity-30 group-hover:rotate-180 transition-transform duration-500">↓</span>
+    </button>
+
+    <div id="work-dropdown" class="grid grid-rows-[0fr] transition-all duration-500 ease-in-out overflow-hidden">
+      <div class="min-h-0 flex flex-col gap-4 pl-12 mt-4">
+        <a href="hotels.html" class="text-xl font-extralight tracking-[0.2em] text-white/30 hover:text-white transition-colors">Hotels</a>
+        <a href="villas.html" class="text-xl font-extralight tracking-[0.2em] text-white/30 hover:text-white transition-colors">Villas</a>
+        <a href="lifestyle.html" class="text-xl font-extralight tracking-[0.2em] text-white/30 hover:text-white transition-colors">Lifestyle</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="menu-item opacity-0 translate-y-8 transition-all duration-700 delay-500">
     <a href="#" class="group flex items-center gap-4 text-4xl font-extralight tracking-[0.1em] text-white/50 uppercase transition-all duration-500 hover:text-white">
       <span class="text-[10px] tracking-[0.2em] opacity-0 transition-opacity duration-500 group-hover:opacity-100">02</span>
       Studio
     </a>
+  </div>
+
+  <div class="menu-item opacity-0 translate-y-8 transition-all duration-700 delay-700">
     <a href="#" class="group flex items-center gap-4 text-4xl font-extralight tracking-[0.1em] text-white/50 uppercase transition-all duration-500 hover:text-white">
       <span class="text-[10px] tracking-[0.2em] opacity-0 transition-opacity duration-500 group-hover:opacity-100">03</span>
       Contact
     </a>
-  </nav>
+  </div>
+</nav>
 
   <div class="absolute bottom-12 left-12 text-[9px] tracking-[0.3em] text-white/30 uppercase md:left-20">
     <p>Voyaflair &copy; 2026</p>
@@ -111,6 +128,26 @@
       item.classList.remove('opacity-100', 'translate-y-0');
     });
   });
+
+
+  //////////menu  dropdown//////////
+
+// Πρόσθεσε αυτά μέσα στο script σου
+const workToggle = document.getElementById('work-toggle');
+const workDropdown = document.getElementById('work-dropdown');
+
+workToggle.addEventListener('click', () => {
+    // Ελέγχει αν είναι κλειστό (grid-rows-[0fr]) και το αλλάζει σε ανοιχτό (grid-rows-[1fr])
+    if (workDropdown.classList.contains('grid-rows-[0fr]')) {
+        workDropdown.classList.remove('grid-rows-[0fr]');
+        workDropdown.classList.add('grid-rows-[1fr]');
+        workToggle.classList.add('text-white'); // Κρατάει το Work φωτεινό
+    } else {
+        workDropdown.classList.remove('grid-rows-[1fr]');
+        workDropdown.classList.add('grid-rows-[0fr]');
+        workToggle.classList.remove('text-white');
+    }
+});
 </script>
 </body>
 </html>
