@@ -36,7 +36,7 @@
 </head>
 <body class="antialiased text-white">
 
-<header class="fixed top-0 left-0 z-40 flex w-full items-center justify-between p-6 md:p-10 text-white mix-blend-difference">
+<header id="main-header" class="fixed top-0 left-0 z-40 flex w-full items-center justify-between p-6 md:p-10 text-white mix-blend-difference transition-transform duration-500 ease-in-out">
     <div class="text-[9px] font-light tracking-[0.5em] uppercase opacity-60">Voyaflair Studio</div>
     <button id="menu-open" class="group flex items-center gap-3">
         <span class="text-[9px] tracking-[0.4em] uppercase opacity-70 group-hover:opacity-100 transition-opacity">Explore</span>
@@ -47,24 +47,24 @@
     </button>
 </header>
 
-<div id="side-menu" class="fixed top-0 right-0 z-50 flex h-screen w-full translate-x-full transform flex-col justify-center border-l border-white/5 bg-[#050505] px-10 md:w-[400px] md:px-16">
+<div id="side-menu" class="fixed top-0 right-0 z-50 flex h-screen w-full transform flex-col justify-center border-l border-white/5 bg-[#050505] px-10 md:w-[400px] md:px-16 translate-x-full">
     <button id="menu-close" class="absolute top-10 right-10 text-[9px] tracking-[0.4em] text-white/30 uppercase hover:text-white transition-colors">Close</button>
 
     <nav class="flex flex-col gap-10">
-        <div class="menu-item opacity-0 translate-y-4 transition-all duration-700 delay-200">
+        <div class="menu-item transition-all duration-700 delay-200 opacity-0 translate-y-4">
             <a href="#about" id="about-link" class="menu-link group flex items-baseline gap-4">
                 <span class="text-[8px] tracking-widest opacity-30 serif italic">01</span>
-                <span class="text-xl font-light tracking-[0.15em] uppercase text-white/60 group-hover:text-white">About</span>
+                <span class="text-xl font-light tracking-[0.15em] uppercase text-white/60 group-hover:text-white">About Me</span>
             </a>
         </div>
 
-        <div class="menu-item opacity-0 translate-y-4 transition-all duration-700 delay-300">
+        <div class="menu-item transition-all duration-700 delay-300 opacity-0 translate-y-4">
             <button id="work-toggle" class="menu-link group flex items-baseline gap-4 w-full text-left focus:outline-none">
                 <span class="text-[8px] tracking-widest opacity-30 serif italic">02</span>
                 <span class="text-xl font-light tracking-[0.15em] uppercase text-white/60 group-hover:text-white">Work</span>
-                <span id="work-arrow" class="text-[10px] opacity-20 transition-transform">↓</span>
+                <span id="work-arrow" class="text-[10px] opacity-20 transition-transform" style="transform: rotate(0deg);">↓</span>
             </button>
-            <div id="work-dropdown" class="grid grid-rows-[0fr] transition-all duration-500 overflow-hidden">
+            <div id="work-dropdown" class="grid transition-all duration-500 overflow-hidden grid-rows-[0fr]">
                 <div class="min-h-0 flex flex-col gap-3 pl-10 mt-4 border-l border-white/5">
                     <a href="hotels.html" class="text-[11px] tracking-[0.2em] text-white/30 hover:text-emerald-400 transition-colors uppercase italic">Amanzoe Resort</a>
                     <a href="hotels.html" class="text-[11px] tracking-[0.2em] text-white/30 hover:text-emerald-400 transition-colors uppercase italic">Four Seasons</a>
@@ -72,14 +72,14 @@
             </div>
         </div>
 
-        <div class="menu-item opacity-0 translate-y-4 transition-all duration-700 delay-400">
+        <div class="menu-item transition-all duration-700 delay-400 opacity-0 translate-y-4">
             <a href="#services" id="services-link" class="menu-link group flex items-baseline gap-4">
                 <span class="text-[8px] tracking-widest opacity-30 serif italic">03</span>
                 <span class="text-xl font-light tracking-[0.15em] uppercase text-white/60 group-hover:text-white">Services</span>
             </a>
         </div>
 
-        <div class="menu-item opacity-0 translate-y-4 transition-all duration-700 delay-500">
+        <div class="menu-item transition-all duration-700 delay-500 opacity-0 translate-y-4">
             <a href="contact.html" class="menu-link group flex items-baseline gap-4">
                 <span class="text-[8px] tracking-widest opacity-30 serif italic">04</span>
                 <span class="text-xl font-light tracking-[0.15em] uppercase text-white/60 group-hover:text-white">Contact</span>
@@ -88,13 +88,14 @@
     </nav>
 
     <div class="absolute bottom-12 text-[8px] tracking-[0.4em] text-white/20 uppercase italic">
-        Voyaflair &mdash; Oslo &bull; Athens
+        Voyaflair — Oslo • Athens
     </div>
 </div>
 
+
 <main class="relative h-screen w-full overflow-hidden bg-black text-white">
     <div class="absolute inset-0 z-0">
-        <img src="https://images.unsplash.com/photo-1494145904049-0dca59b4bbad?q=80&w=2000" class="animate-slow-zoom h-full w-full object-cover opacity-40" alt="Hero Background"/>
+        <img src="https://images.unsplash.com/photo-1494145904049-0dca59b4bbad?q=80&w=2000" class="animate-slow-zoom h-full w-full object-cover opacity-40" alt="Hero Background">
     </div>
     <div class="relative z-10 flex h-full w-full items-center justify-center">
         <div class="text-center">
@@ -104,40 +105,39 @@
     </div>
 </main>
 
-<section id="about" class="bg-white py-32 px-10 md:px-0 text-black">
-    <div class="max-w-3xl mx-auto space-y-12">
-        <h2 class="text-[9px] tracking-[0.5em] uppercase text-zinc-400 font-bold border-b border-zinc-100 pb-4 inline-block">The Visionary</h2>
-        <p class="serif italic text-2xl md:text-3xl lg:text-4xl leading-snug tracking-tight">
+<section id="about" class="relative bg-white py-32 md:py-48 px-8 md:px-10 flex flex-col items-center text-center text-black">
+    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[1px] h-20 bg-black/10"></div>
+
+    <div class="max-w-4xl mx-auto w-full">
+        <h2 class="text-[10px] tracking-[0.6em] uppercase text-zinc-400 font-bold border-b border-zinc-200 pb-3 inline-block mb-12">
+            About Me
+        </h2>
+
+        <p class="serif italic text-3xl md:text-5xl lg:text-6xl leading-tight tracking-tight text-zinc-900 mb-16">
             Hi, I’m Joanna — the creator behind Voyaflair.
         </p>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
-            <p class="text-[12px] md:text-[13px] leading-relaxed text-zinc-600 tracking-wide font-light uppercase">
-                Based in <span class="text-black font-semibold tracking-widest border-b border-black/10">Oslo</span> and driven by a deep curiosity for the world, I created Voyaflair as a space to share the places that leave a lasting impression.
+
+        <div class="max-w-2xl mx-auto space-y-8 text-[13px] md:text-[14px] leading-loose text-zinc-500 font-light tracking-wide">
+            <p>
+                Based in <span class="text-black font-semibold border-b border-black/10 pb-0.5 tracking-widest uppercase">Oslo</span> and driven by a deep curiosity for the world, I created Voyaflair as a space to share the places that leave a lasting impression.
             </p>
-            <p class="text-[12px] md:text-[13px] leading-relaxed text-zinc-500 tracking-wide font-light italic border-l border-zinc-200 pl-6">
-                Through travel, I’m constantly drawn to destinations that offer a strong sense of atmosphere — from serene landscapes to hidden corners that reveal the true character of a place.
+            
+            <p>
+                Through travel, I’m constantly drawn to destinations that offer a strong sense of atmosphere — from serene landscapes to hidden corners that reveal the true character of a place. For me, travel is not only about seeing new destinations, but about experiencing <span class="serif italic text-black text-[16px] md:text-[18px]">how a place feels.</span>
+            </p>
+            
+            <p>
+                Through photography, video, and storytelling, I aim to capture the mood, textures, and moments that make each destination unique. Voyaflair is where I document these experiences and transform them into visual stories designed to inspire more thoughtful and meaningful travel.
             </p>
         </div>
-    </div>
-</section>
 
-<section class="bg-zinc-50 py-32 md:py-48 px-8 md:px-20 text-center relative text-black">
-    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[1px] h-16 bg-black/10"></div>
-
-    <div class="max-w-4xl mx-auto space-y-12 md:space-y-16">
-        <p class="text-xl md:text-3xl lg:text-4xl font-light leading-snug tracking-tight text-zinc-800">
-            For me, travel is not only about seeing new destinations, but about experiencing <span class="serif italic text-black">how a place feels.</span>
-        </p>
-
-        <p class="text-xs md:text-sm font-light leading-loose text-zinc-500 max-w-2xl mx-auto tracking-wide">
-            Through photography, video, and storytelling, I aim to capture the mood, textures, and moments that make each destination unique. Voyaflair is where I document these experiences and transform them into visual stories designed to inspire more thoughtful and meaningful travel.
-        </p>
-
-        <div class="pt-12 border-t border-black/5 mt-12 text-[9px] md:text-[10px] tracking-[0.4em] uppercase text-zinc-400 font-bold leading-loose">
-            Curated Destinations &nbsp;&mdash;&nbsp; 
-            Design-Driven Hotels &nbsp;&mdash;&nbsp; 
+        <div class="mt-20 pt-12 border-t border-black/5 text-[9px] md:text-[10px] tracking-[0.4em] uppercase text-zinc-400 font-bold leading-loose">
+            Curated Destinations &nbsp;—&nbsp; 
+            Design-Driven Hotels &nbsp;—&nbsp; 
             Hidden Gems <br class="hidden md:block">
-            <span class="block mt-4 italic serif normal-case tracking-widest text-base md:text-lg text-zinc-600 font-normal">A personal perspective of discovery.</span>
+            <span class="block mt-6 italic serif normal-case tracking-widest text-lg md:text-xl text-zinc-800 font-normal">
+                A personal perspective of discovery.
+            </span>
         </div>
     </div>
 </section>
@@ -206,14 +206,14 @@
     <div class="w-full pb-16 mb-20 border-b border-black/5 relative flex overflow-hidden whitespace-nowrap opacity-90 hover:opacity-100 transition-opacity cursor-default">
         <div class="animate-marquee-infinite flex items-center">
             <h2 class="text-5xl md:text-7xl font-extralight tracking-tighter uppercase px-8">Let's Create</h2>
-            <span class="text-4xl md:text-6xl serif italic text-zinc-300 px-4">&mdash;</span>
+            <span class="text-4xl md:text-6xl serif italic text-zinc-300 px-4">—</span>
             <h2 class="text-5xl md:text-7xl font-extralight tracking-tighter uppercase px-8">Atmosphere</h2>
-            <span class="text-4xl md:text-6xl serif italic text-zinc-300 px-4">&mdash;</span>
+            <span class="text-4xl md:text-6xl serif italic text-zinc-300 px-4">—</span>
             
             <h2 class="text-5xl md:text-7xl font-extralight tracking-tighter uppercase px-8">Let's Create</h2>
-            <span class="text-4xl md:text-6xl serif italic text-zinc-300 px-4">&mdash;</span>
+            <span class="text-4xl md:text-6xl serif italic text-zinc-300 px-4">—</span>
             <h2 class="text-5xl md:text-7xl font-extralight tracking-tighter uppercase px-8">Atmosphere</h2>
-            <span class="text-4xl md:text-6xl serif italic text-zinc-300 px-4">&mdash;</span>
+            <span class="text-4xl md:text-6xl serif italic text-zinc-300 px-4">—</span>
         </div>
     </div>
 
@@ -222,11 +222,12 @@
             
             <div class="text-left">
                 <p class="text-[9px] tracking-[0.5em] uppercase text-zinc-400 mb-4 font-bold">Inquiries & Projects</p>
-                <a href="mailto:hello@voyaflair.com" class="serif italic text-3xl md:text-4xl hover:opacity-40 transition-opacity">hello@voyaflair.com</a>
+                <a href="mailto:hello@voyaflair.com" class="serif italic text-3xl md:text-4xl hover:opacity-40 transition-opacity">voyaflair@gmail.com</a>
             </div>
 
             <div class="flex flex-wrap gap-8 md:gap-10">
-                <a href="https://instagram.com" target="_blank" class="group flex items-center gap-3">
+                <a href="https://www.instagram.com/voyaflair?igsh=eTc2YnVldXlneHB2&utm_source=qr
+" target="_blank" class="group flex items-center gap-3">
                     <div class="p-2 rounded-full border border-black/10 group-hover:border-black group-hover:bg-black group-hover:text-white text-zinc-600 transition-all duration-500">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4">
                             <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
@@ -240,7 +241,8 @@
                     </div>
                 </a>
 
-                <a href="https://tiktok.com" target="_blank" class="group flex items-center gap-3">
+                <a href="https://www.tiktok.com/@voyaflair
+" target="_blank" class="group flex items-center gap-3">
                     <div class="p-2 rounded-full border border-black/10 group-hover:border-black group-hover:bg-black group-hover:text-white text-zinc-600 transition-all duration-500">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4">
                             <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5v3a8 8 0 0 1-5-3z"></path>
@@ -267,17 +269,7 @@
         </div>
 
         <div class="mt-32 pt-10 flex flex-col md:flex-row justify-between items-start md:items-center gap-8 text-[9px] tracking-[0.4em] uppercase font-bold text-zinc-400">
-            
-            <div class="flex flex-col md:flex-row gap-4 md:gap-8">
-                <div class="flex items-center gap-2">
-                    Oslo <span id="time-oslo" class="text-black font-normal bg-zinc-100 px-2 py-1 rounded-sm tracking-widest">--:--</span>
-                </div>
-                <div class="flex items-center gap-2">
-                    Athens <span id="time-athens" class="text-black font-normal bg-zinc-100 px-2 py-1 rounded-sm tracking-widest">--:--</span>
-                </div>
-            </div>
-
-            <p>&copy; 2026 Voyaflair Studio</p>
+            <p>© 2026 Voyaflair Studio</p>
         </div>
     </div>
 </footer>
@@ -323,20 +315,29 @@
         document.getElementById('work-arrow').style.transform = isClosed ? 'rotate(180deg)' : 'rotate(0deg)';
     });
 
-    // --- 2. LIVE STUDIO CLOCKS ---
-    function updateClocks() {
-        const now = new Date();
-        const options = { hour: '2-digit', minute: '2-digit', hour12: false };
-        
-        const osloTime = new Intl.DateTimeFormat('en-GB', { ...options, timeZone: 'Europe/Oslo' }).format(now);
-        const athensTime = new Intl.DateTimeFormat('en-GB', { ...options, timeZone: 'Europe/Athens' }).format(now);
-        
-        document.getElementById('time-oslo').textContent = osloTime;
-        document.getElementById('time-athens').textContent = athensTime;
-    }
+    // --- 2. HIDE NAVBAR AND CLOSE MENU ON SCROLL ---
+    const mainHeader = document.getElementById('main-header');
+    let scrollTimeout;
 
-    setInterval(updateClocks, 1000);
-    updateClocks();
+    window.addEventListener('scroll', () => {
+        // Αν το πλαϊνό μενού είναι ανοιχτό, κλείσ' το αμέσως μόλις γίνει scroll
+        if (!sideMenu.classList.contains('translate-x-full')) {
+            closeMenu();
+        }
+
+        // Καθαρίζουμε το timeout όσο ρολάρεις
+        clearTimeout(scrollTimeout);
+
+        // Αν έχουμε κατέβει κάτω από 50px, κρύψε το main header
+        if (window.scrollY > 50 && !mainHeader.classList.contains('-translate-y-full')) {
+            mainHeader.classList.add('-translate-y-full');
+        }
+
+        // Μόλις σταματήσει το scroll, περιμένουμε 250ms και εμφανίζουμε ξανά το top header
+        scrollTimeout = setTimeout(() => {
+            mainHeader.classList.remove('-translate-y-full');
+        }, 250);
+    });
 </script>
 
 </body>
