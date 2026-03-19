@@ -5,74 +5,123 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>VOYAFLAIR | Cinematic Studio</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;1,400&family=Inter:wght@200;300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;600&family=Inter:wght@200;300;400;600&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Instrument Sans', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
     <style>
-        body { font-family: 'Inter', sans-serif; scroll-behavior: smooth; background-color: #000; }
-        .serif { font-family: 'Playfair Display', serif; }
-        #side-menu { transition: transform 0.8s cubic-bezier(0.19, 1, 0.22, 1); }
-        @keyframes slow-zoom { 0% { transform: scale(1); } 100% { transform: scale(1.05); } }
-        .animate-slow-zoom { animation: slow-zoom 20s ease-out infinite alternate; }
-        @keyframes marquee { 0% { transform: translateX(0%); } 100% { transform: translateX(-50%); } }
-        .animate-marquee-infinite { display: flex; width: 200%; animation: marquee 20s linear infinite; }
+        body { 
+            scroll-behavior: smooth; 
+            background-color: #000; 
+        }
+        /* Custom scrollbar */
+        ::-webkit-scrollbar { width: 5px; }
+        ::-webkit-scrollbar-track { background: #000; }
+        ::-webkit-scrollbar-thumb { background: #4A574F; border-radius: 10px; }
     </style>
 </head>
-<body class="antialiased"> <section class="relative w-full min-h-screen bg-[#FDFDFB] py-10 px-4 md:py-16 md:px-6 font-sans flex flex-col items-center">
-  
-  <div class="w-full max-w-2xl mb-10 text-center">
-    <h2 class="text-[#000000] text-3xl md:text-5xl tracking-tight mb-4 font-normal leading-tight">
-      Let's Create Together
-    </h2>
-    <div class="text-[#69746E] text-base md:text-lg leading-relaxed">
-      <p>Get in touch with me by filling out the form,</p> 
-      <p>
-        or send me an email at 
-        <a href="mailto:voyaflair@gmail.com" class="text-[#4A574F] font-semibold underline decoration-[#4A574F]/30">
-          voyaflair@gmail.com
-        </a>
-      </p>
+<body class="antialiased font-sans">
+
+    <main class="w-full min-h-[50vh] flex items-center justify-center text-white/20">
+        <p class="uppercase tracking-[0.5em] text-[10px] font-light">Content Section</p>
+    </main>
+
+<footer class="w-full bg-[#FDFDFB] py-20 border-t border-[#4A574F]/5">
+    <div class="max-w-screen-xl mx-auto px-6">
+        
+        <div class="w-full flex flex-col items-center text-center mb-16">
+            <h2 class="text-black text-[50px] leading-tight tracking-tighter font-light mb-6">
+                Let's Create Together
+            </h2>
+            <div class="text-[#69746E] text-[15px] space-y-2">
+                <p>Get in touch by filling out the form below,</p>
+                <p>or reach out via email at
+                    <a href="mailto:voyaflair@gmail.com" class="text-black font-semibold border-b border-black/20 hover:border-black transition-colors">
+                        voyaflair@gmail.com
+                    </a>
+                </p>
+            </div>
+        </div>
+
+        <div class="max-w-5xl mx-auto mb-20">
+            <div class="flex flex-col lg:flex-row bg-white rounded-2xl shadow-sm border border-[#4A574F]/10 overflow-hidden">
+                
+                <div class="hidden lg:block lg:w-1/2 relative min-h-[600px]">
+                    <img src="https://images.unsplash.com/photo-1492691523567-6170c240538f?auto=format&fit=crop&q=80&w=800" 
+                         alt="Cinematic Studio" 
+                         class="w-full h-full object-cover grayscale transition-all duration-1000 hover:grayscale-0 scale-105 hover:scale-100">
+                    <div class="absolute inset-0 bg-black/5"></div>
+                </div>
+
+                <div class="w-full lg:w-1/2 p-8 md:p-12 flex flex-col justify-center bg-white">
+                    <form action="https://formspree.io/f/mnjgwzrw" method="POST" class="flex flex-col space-y-4">
+                        
+                        <input type="text" name="first_name" placeholder="First Name" required 
+                            oninvalid="this.setCustomValidity('Please enter your first name')" 
+                            oninput="this.setCustomValidity('')"
+                            class="w-full bg-[#FDFDFB] border border-[#4A574F]/10 rounded-lg p-4 text-[15px] text-center outline-none focus:border-black transition-all">
+                        
+                        <input type="text" name="last_name" placeholder="Last Name" required 
+                            oninvalid="this.setCustomValidity('Please enter your last name')" 
+                            oninput="this.setCustomValidity('')"
+                            class="w-full bg-[#FDFDFB] border border-[#4A574F]/10 rounded-lg p-4 text-[15px] text-center outline-none focus:border-black transition-all">
+
+                        <input type="email" name="email" placeholder="Email Address" required 
+                            oninvalid="this.setCustomValidity('Please enter a valid email address')" 
+                            oninput="this.setCustomValidity('')"
+                            class="w-full bg-[#FDFDFB] border border-[#4A574F]/10 rounded-lg p-4 text-[15px] text-center outline-none focus:border-black transition-all">
+                        
+                        <textarea name="message" rows="5" placeholder="Tell me about your project..." required 
+                            oninvalid="this.setCustomValidity('Please describe your project or inquiry')" 
+                            oninput="this.setCustomValidity('')"
+                            class="w-full bg-[#FDFDFB] border border-[#4A574F]/10 rounded-lg p-4 text-[15px] text-center outline-none focus:border-black transition-all resize-none"></textarea>
+                        
+                        <button type="submit" 
+                            class="w-full bg-black text-white py-4 rounded-lg text-xs font-bold uppercase tracking-[0.2em] hover:bg-[#3F4C46] transition-all duration-300 cursor-pointer mt-2">
+                            Send Inquiry
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="flex flex-col items-center space-y-12">
+            <div class="flex items-center justify-center space-x-12">
+                <a href="https://www.instagram.com/voyaflair" class="group flex flex-col items-center transition-all duration-500 transform hover:-translate-y-1">
+                    <div class="p-3 rounded-full bg-white shadow-sm border border-[#4A574F]/10 group-hover:bg-black group-hover:text-white transition-all duration-300">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                    </div>
+                    <span class="text-[9px] uppercase tracking-[0.2em] mt-3 text-[#69746E] font-medium opacity-50 group-hover:opacity-100 transition-opacity">Instagram</span>
+                </a>
+
+                <a href="https://www.tiktok.com/@voyaflair" class="group flex flex-col items-center transition-all duration-500 transform hover:-translate-y-1">
+                    <div class="p-3 rounded-full bg-white shadow-sm border border-[#4A574F]/10 group-hover:bg-black group-hover:text-white transition-all duration-300">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"></path></svg>
+                    </div>
+                    <span class="text-[9px] uppercase tracking-[0.2em] mt-3 text-[#69746E] font-medium opacity-50 group-hover:opacity-100 transition-opacity">TikTok</span>
+                </a>
+
+                <a href="https://www.facebook.com/voyaflair" class="group flex flex-col items-center transition-all duration-500 transform hover:-translate-y-1">
+                    <div class="p-3 rounded-full bg-white shadow-sm border border-[#4A574F]/10 group-hover:bg-black group-hover:text-white transition-all duration-300">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+                    </div>
+                    <span class="text-[9px] uppercase tracking-[0.2em] mt-3 text-[#69746E] font-medium opacity-50 group-hover:opacity-100 transition-opacity">Facebook</span>
+                </a>
+            </div>
+
+            <div class="text-[10px] text-[#69746E]/30 uppercase tracking-[0.5em] font-light">
+                © 2026 VOYAFLAIR Cinematic Studio
+            </div>
+        </div>
     </div>
-  </div>
-
-  <div class="relative z-10 w-full max-w-xl bg-white p-6 md:p-8 rounded-xl shadow-sm border border-[#4A574F]/10">
-    <form action="https://formspree.io/f/mnjgwzrw" method="POST" class="space-y-5">
-      
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-        <div>
-          <label class="block text-[#000000] text-xs font-bold mb-2 uppercase tracking-wide">First Name</label>
-          <input type="text" name="first_name" placeholder="Your Name"
-            class="w-full bg-[#FDFDFB] border border-[#4A574F]/20 rounded-md p-3 text-base text-black outline-none focus:border-[#3F4C46] transition-colors">
-        </div>
-        <div>
-          <label class="block text-[#000000] text-xs font-bold mb-2 uppercase tracking-wide">Last Name</label>
-          <input type="text" name="last_name" placeholder="Your Surname"
-            class="w-full bg-[#FDFDFB] border border-[#4A574F]/20 rounded-md p-3 text-base text-black outline-none focus:border-[#3F4C46] transition-colors">
-        </div>
-      </div>
-
-      <div>
-        <label class="block text-[#000000] text-xs font-bold mb-2 uppercase tracking-wide">
-          Email <span class="text-red-500">*</span>
-        </label>
-        <input type="email" name="email" required placeholder="email@example.com"
-          class="w-full bg-[#FDFDFB] border border-[#4A574F]/20 rounded-md p-3 text-base text-black outline-none focus:border-[#3F4C46] transition-colors">
-      </div>
-
-      <div>
-        <label class="block text-[#000000] text-xs font-bold mb-2 uppercase tracking-wide">
-          Message <span class="text-red-500">*</span>
-        </label>
-        <textarea name="message" rows="4" required placeholder="How can I help you?"
-          class="w-full bg-[#FDFDFB] border border-[#4A574F]/20 rounded-md p-3 text-base text-black outline-none focus:border-[#3F4C46] transition-colors"></textarea>
-      </div>
-
-      <button type="submit" 
-        class="w-full bg-[#000000] text-[#FDFDFB] py-4 rounded-lg text-lg font-bold hover:bg-[#3F4C46] transition-all duration-300 cursor-pointer">
-        Send Message
-      </button>
-
-    </form>
-  </div>
-</section>
-
-</body>
+</footer> 
+    </body>
 </html>
