@@ -4,22 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>VOYAFLAIR | Cinematic Studio</title>
+    
     <script src="https://cdn.tailwindcss.com"></script>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;600&family=Inter:wght@200;300;400;600&display=swap" rel="stylesheet">
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        sans: ['Instrument Sans', 'sans-serif'],
-                    },
-                }
-            }
-        }
-    </script>
+
     <style>
+        html {
+            scroll-behavior: smooth;
+        }
         body { 
-            scroll-behavior: smooth; 
             background-color: #000; 
         }
         /* Custom scrollbar */
@@ -28,11 +24,95 @@
         ::-webkit-scrollbar-thumb { background: #4A574F; border-radius: 10px; }
     </style>
 </head>
-<body class="antialiased font-sans">
+<body class="antialiased font-sans bg-black">
 
     <main class="w-full min-h-[50vh] flex items-center justify-center text-white/20">
         <p class="uppercase tracking-[0.5em] text-[10px] font-light">Content Section</p>
     </main>
+
+
+
+<!---------------------------work with me section starts here-------------------------------------------------
+--------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------------------->
+
+<section class="w-full bg-[#FDFDFB] py-20 border-t border-[#4A574F]/5">
+    <div class="max-w-screen-xl mx-auto px-6">
+        
+        <div class="w-full flex flex-col items-center text-center mb-16 lg:mb-24">
+            <h2 class="text-black text-[50px] leading-tight tracking-tighter font-light mb-6">
+                Work With Me
+            </h2>
+            <p class="text-[#69746E] text-[15px] leading-relaxed max-w-3xl">
+                Collaborating with hotels, travel brands, and destinations, I focus on creating immersive visual stories that capture the unique atmosphere, character, and identity of each place — content designed to connect with audiences and inspire meaningful engagement.
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start">
+            
+            <div class="relative w-full h-[500px] lg:h-[700px] overflow-hidden rounded-2xl group lg:sticky lg:top-32">
+                <img src="https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?auto=format&fit=crop&q=80&w=1000" 
+                     alt="Work With Me Collaboration" 
+                     class="w-full h-full object-cover grayscale transition-all duration-1000 group-hover:grayscale-0 scale-105 group-hover:scale-100 shadow-sm border border-[#4A574F]/10">
+                <div class="absolute inset-0 bg-black/5"></div>
+            </div>
+
+            <div class="flex flex-col space-y-10 lg:py-4">
+                
+                <div>
+                    <h3 class="text-black text-sm uppercase tracking-[0.2em] font-semibold mb-4">
+                        Social Media Collaboration
+                    </h3>
+                    <p class="text-[#69746E] text-[15px] leading-relaxed">
+                        Strategic promotion across Instagram and other digital platforms through curated posts, reels, and stories designed to highlight destinations, hotels, and travel experiences in an authentic and visually engaging way.
+                    </p>
+                </div>
+
+                <div>
+                    <h3 class="text-black text-sm uppercase tracking-[0.2em] font-semibold mb-4">
+                        UGC-Style Content Creation
+                    </h3>
+                    <p class="text-[#69746E] text-[15px] leading-relaxed">
+                        Authentic yet visually refined photo and video content created for hotels, travel brands, and destinations. Packages can be tailored based on content deliverables, intended usage, social sharing, and licensing duration.
+                    </p>
+                </div>
+
+                <div>
+                    <h3 class="text-black text-sm uppercase tracking-[0.2em] font-semibold mb-4">
+                        Travel Guides & Editorial Features
+                    </h3>
+                    <p class="text-[#69746E] text-[15px] leading-relaxed">
+                        With the upcoming launch of the Voyaflair blog in May, destinations and properties will also have the opportunity to be featured through curated travel guides and editorial-style articles designed to offer deeper inspiration and storytelling.
+                    </p>
+                </div>
+
+                <div>
+                    <h3 class="text-black text-sm uppercase tracking-[0.2em] font-semibold mb-4">
+                        Press Trips & Destination Campaigns
+                    </h3>
+                    <p class="text-[#69746E] text-[15px] leading-relaxed">
+                        Open to participating in press trips and destination campaigns to showcase locations through immersive storytelling and visually driven content.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</section>
+
+
+
+
+
+<!---------------------------footer starts here-------------------------------------------------
+--------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------------------->
+
+
+
 
 <footer class="w-full bg-[#FDFDFB] py-20 border-t border-[#4A574F]/5">
     <div class="max-w-screen-xl mx-auto px-6">
@@ -54,7 +134,7 @@
         <div class="max-w-5xl mx-auto mb-20">
             <div class="flex flex-col lg:flex-row bg-white rounded-2xl shadow-sm border border-[#4A574F]/10 overflow-hidden">
                 
-                <div class="hidden lg:block lg:w-1/2 relative min-h-[600px]">
+                <div class="hidden lg:block lg:w-1/2 relative min-h-[600px] overflow-hidden">
                     <img src="https://images.unsplash.com/photo-1492691523567-6170c240538f?auto=format&fit=crop&q=80&w=800" 
                          alt="Cinematic Studio" 
                          class="w-full h-full object-cover grayscale transition-all duration-1000 hover:grayscale-0 scale-105 hover:scale-100">
@@ -65,22 +145,22 @@
                     <form action="https://formspree.io/f/mnjgwzrw" method="POST" class="flex flex-col space-y-4">
                         
                         <input type="text" name="first_name" placeholder="First Name" required 
-                            oninvalid="this.setCustomValidity('Please enter your first name')" 
+                            oninvalid="this.setCustomValidity('Please fill out your First Name.')"
                             oninput="this.setCustomValidity('')"
                             class="w-full bg-[#FDFDFB] border border-[#4A574F]/10 rounded-lg p-4 text-[15px] text-center outline-none focus:border-black transition-all">
                         
                         <input type="text" name="last_name" placeholder="Last Name" required 
-                            oninvalid="this.setCustomValidity('Please enter your last name')" 
+                            oninvalid="this.setCustomValidity('Please fill out your Last Name.')"
                             oninput="this.setCustomValidity('')"
                             class="w-full bg-[#FDFDFB] border border-[#4A574F]/10 rounded-lg p-4 text-[15px] text-center outline-none focus:border-black transition-all">
 
                         <input type="email" name="email" placeholder="Email Address" required 
-                            oninvalid="this.setCustomValidity('Please enter a valid email address')" 
+                            oninvalid="this.setCustomValidity('Please enter a valid Email Address.')"
                             oninput="this.setCustomValidity('')"
                             class="w-full bg-[#FDFDFB] border border-[#4A574F]/10 rounded-lg p-4 text-[15px] text-center outline-none focus:border-black transition-all">
                         
                         <textarea name="message" rows="5" placeholder="Tell me about your project..." required 
-                            oninvalid="this.setCustomValidity('Please describe your project or inquiry')" 
+                            oninvalid="this.setCustomValidity('Please enter a message.')"
                             oninput="this.setCustomValidity('')"
                             class="w-full bg-[#FDFDFB] border border-[#4A574F]/10 rounded-lg p-4 text-[15px] text-center outline-none focus:border-black transition-all resize-none"></textarea>
                         
@@ -122,6 +202,7 @@
             </div>
         </div>
     </div>
-</footer> 
-    </body>
+</footer>
+
+</body>
 </html>
