@@ -1,6 +1,55 @@
-<!-- <!DOCTYPE html> 
-<html lang="en">
-<head>
+<html lang="en"><head><script>
+	// <![CDATA[  <-- For SVG support
+	if ('WebSocket' in window) {
+		(function () {
+			function refreshCSS() {
+				var sheets = [].slice.call(document.getElementsByTagName("link"));
+				var head = document.getElementsByTagName("head")[0];
+				for (var i = 0; i < sheets.length; ++i) {
+					var elem = sheets[i];
+					var parent = elem.parentElement || head;
+					parent.removeChild(elem);
+					var rel = elem.rel;
+					if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+						var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+						elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+					}
+					parent.appendChild(elem);
+				}
+			}
+			var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+			var address = protocol + window.location.host + window.location.pathname + '/ws';
+			var socket = new WebSocket(address);
+			socket.onmessage = function (msg) {
+				if (msg.data == 'reload') window.location.reload();
+				else if (msg.data == 'refreshcss') refreshCSS();
+			};
+			if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+				console.log('Live reload enabled.');
+				sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+			}
+		})();
+	}
+	else {
+		console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+	}
+	// ]]>
+</script>
+<style>*, ::before, ::after{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }::backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }/* ! tailwindcss v3.4.17 | MIT License | https://tailwindcss.com */*,::after,::before{box-sizing:border-box;border-width:0;border-style:solid;border-color:#e5e7eb}::after,::before{--tw-content:''}:host,html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;tab-size:4;font-family:ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";font-feature-settings:normal;font-variation-settings:normal;-webkit-tap-highlight-color:transparent}body{margin:0;line-height:inherit}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;font-feature-settings:normal;font-variation-settings:normal;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}button,input,optgroup,select,textarea{font-family:inherit;font-feature-settings:inherit;font-variation-settings:inherit;font-size:100%;font-weight:inherit;line-height:inherit;letter-spacing:inherit;color:inherit;margin:0;padding:0}button,select{text-transform:none}button,input:where([type=button]),input:where([type=reset]),input:where([type=submit]){-webkit-appearance:button;background-color:transparent;background-image:none}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dd,dl,figure,h1,h2,h3,h4,h5,h6,hr,p,pre{margin:0}fieldset{margin:0;padding:0}legend{padding:0}menu,ol,ul{list-style:none;margin:0;padding:0}dialog{padding:0}textarea{resize:vertical}input::placeholder,textarea::placeholder{opacity:1;color:#9ca3af}[role=button],button{cursor:pointer}:disabled{cursor:default}audio,canvas,embed,iframe,img,object,svg,video{display:block;vertical-align:middle}img,video{max-width:100%;height:auto}[hidden]:where(:not([hidden=until-found])){display:none}.pointer-events-none{pointer-events:none}.fixed{position:fixed}.absolute{position:absolute}.relative{position:relative}.inset-0{inset:0px}.-left-20{left:-5rem}.bottom-6{bottom:1.5rem}.left-6{left:1.5rem}.right-0{right:0px}.right-6{right:1.5rem}.top-0{top:0px}.top-1\/4{top:25%}.z-10{z-index:10}.z-50{z-index:50}.z-\[60\]{z-index:60}.z-\[70\]{z-index:70}.order-1{order:1}.order-2{order:2}.mx-auto{margin-left:auto;margin-right:auto}.mb-10{margin-bottom:2.5rem}.mb-4{margin-bottom:1rem}.mb-6{margin-bottom:1.5rem}.mb-8{margin-bottom:2rem}.ml-4{margin-left:1rem}.mt-2{margin-top:0.5rem}.mt-3{margin-top:0.75rem}.mt-4{margin-top:1rem}.mt-8{margin-top:2rem}.mt-auto{margin-top:auto}.block{display:block}.flex{display:flex}.grid{display:grid}.hidden{display:none}.aspect-\[2\/3\]{aspect-ratio:2/3}.aspect-square{aspect-ratio:1 / 1}.h-2{height:0.5rem}.h-96{height:24rem}.h-\[1px\]{height:1px}.h-\[500px\]{height:500px}.h-full{height:100%}.h-screen{height:100vh}.min-h-\[600px\]{min-height:600px}.min-h-screen{min-height:100vh}.w-2{width:0.5rem}.w-4{width:1rem}.w-7{width:1.75rem}.w-96{width:24rem}.w-full{width:100%}.max-w-3xl{max-width:48rem}.max-w-4xl{max-width:56rem}.max-w-5xl{max-width:64rem}.max-w-7xl{max-width:80rem}.max-w-\[320px\]{max-width:320px}.max-w-lg{max-width:32rem}.max-w-screen-xl{max-width:1280px}.translate-x-full{--tw-translate-x:100%;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.scale-105{--tw-scale-x:1.05;--tw-scale-y:1.05;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.transform{transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}@keyframes pulse{50%{opacity:.5}}.animate-pulse{animation:pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite}.cursor-pointer{cursor:pointer}.resize-none{resize:none}.grid-cols-1{grid-template-columns:repeat(1, minmax(0, 1fr))}.flex-col{flex-direction:column}.items-start{align-items:flex-start}.items-center{align-items:center}.justify-center{justify-content:center}.justify-between{justify-content:space-between}.gap-12{gap:3rem}.gap-3{gap:0.75rem}.gap-4{gap:1rem}.gap-6{gap:1.5rem}.gap-8{gap:2rem}.gap-y-10{row-gap:2.5rem}.space-x-12 > :not([hidden]) ~ :not([hidden]){--tw-space-x-reverse:0;margin-right:calc(3rem * var(--tw-space-x-reverse));margin-left:calc(3rem * calc(1 - var(--tw-space-x-reverse)))}.space-x-4 > :not([hidden]) ~ :not([hidden]){--tw-space-x-reverse:0;margin-right:calc(1rem * var(--tw-space-x-reverse));margin-left:calc(1rem * calc(1 - var(--tw-space-x-reverse)))}.space-y-1\.5 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.375rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.375rem * var(--tw-space-y-reverse))}.space-y-10 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(2.5rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(2.5rem * var(--tw-space-y-reverse))}.space-y-2 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.5rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.5rem * var(--tw-space-y-reverse))}.space-y-3 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.75rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.75rem * var(--tw-space-y-reverse))}.space-y-4 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(1rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(1rem * var(--tw-space-y-reverse))}.space-y-6 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(1.5rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(1.5rem * var(--tw-space-y-reverse))}.self-end{align-self:flex-end}.overflow-hidden{overflow:hidden}.rounded-2xl{border-radius:1rem}.rounded-full{border-radius:9999px}.rounded-lg{border-radius:0.5rem}.rounded-xl{border-radius:0.75rem}.rounded-b-xl{border-bottom-right-radius:0.75rem;border-bottom-left-radius:0.75rem}.rounded-t-\[1000px\]{border-top-left-radius:1000px;border-top-right-radius:1000px}.border{border-width:1px}.border-b{border-bottom-width:1px}.border-l{border-left-width:1px}.border-t{border-top-width:1px}.border-\[\#4A574F\]\/10{border-color:rgb(74 87 79 / 0.1)}.border-\[\#4A574F\]\/5{border-color:rgb(74 87 79 / 0.05)}.border-black\/10{border-color:rgb(0 0 0 / 0.1)}.border-black\/20{border-color:rgb(0 0 0 / 0.2)}.border-black\/5{border-color:rgb(0 0 0 / 0.05)}.border-white\/10{border-color:rgb(255 255 255 / 0.1)}.border-white\/20{border-color:rgb(255 255 255 / 0.2)}.bg-\[\#4A574F\]\/80{background-color:rgb(74 87 79 / 0.8)}.bg-\[\#FDFDFB\]{--tw-bg-opacity:1;background-color:rgb(253 253 251 / var(--tw-bg-opacity, 1))}.bg-black{--tw-bg-opacity:1;background-color:rgb(0 0 0 / var(--tw-bg-opacity, 1))}.bg-black\/40{background-color:rgb(0 0 0 / 0.4)}.bg-black\/5{background-color:rgb(0 0 0 / 0.05)}.bg-emerald-900\/20{background-color:rgb(6 78 59 / 0.2)}.bg-green-400{--tw-bg-opacity:1;background-color:rgb(74 222 128 / var(--tw-bg-opacity, 1))}.bg-stone-100{--tw-bg-opacity:1;background-color:rgb(245 245 244 / var(--tw-bg-opacity, 1))}.bg-white{--tw-bg-opacity:1;background-color:rgb(255 255 255 / var(--tw-bg-opacity, 1))}.bg-\[\#FDFDFB\]\/90{background-color:rgb(253 253 251 / 0.9)}.bg-\[url\(\'YOUR_IMAGE_URL_HERE\'\)\]{background-image:url('YOUR_IMAGE_URL_HERE')}.bg-cover{background-size:cover}.bg-center{background-position:center}.bg-no-repeat{background-repeat:no-repeat}.object-cover{object-fit:cover}.p-2{padding:0.5rem}.p-3{padding:0.75rem}.p-4{padding:1rem}.p-8{padding:2rem}.px-6{padding-left:1.5rem;padding-right:1.5rem}.px-8{padding-left:2rem;padding-right:2rem}.py-10{padding-top:2.5rem;padding-bottom:2.5rem}.py-12{padding-top:3rem;padding-bottom:3rem}.py-4{padding-top:1rem;padding-bottom:1rem}.py-8{padding-top:2rem;padding-bottom:2rem}.pb-10{padding-bottom:2.5rem}.pl-6{padding-left:1.5rem}.pt-10{padding-top:2.5rem}.pt-20{padding-top:5rem}.pt-8{padding-top:2rem}.text-center{text-align:center}.font-\[\'Instrument_Sans\'\]{font-family:'Instrument Sans'}.font-\[\'Inter\'\]{font-family:'Inter'}.font-sans{font-family:ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"}.font-serif{font-family:ui-serif, Georgia, Cambria, "Times New Roman", Times, serif}.text-2xl{font-size:1.5rem;line-height:2rem}.text-3xl{font-size:1.875rem;line-height:2.25rem}.text-5xl{font-size:3rem;line-height:1}.text-\[10px\]{font-size:10px}.text-\[13px\]{font-size:13px}.text-\[15px\]{font-size:15px}.text-\[50px\]{font-size:50px}.text-\[9px\]{font-size:9px}.text-lg{font-size:1.125rem;line-height:1.75rem}.text-sm{font-size:0.875rem;line-height:1.25rem}.text-xs{font-size:0.75rem;line-height:1rem}.font-bold{font-weight:700}.font-light{font-weight:300}.font-medium{font-weight:500}.font-semibold{font-weight:600}.uppercase{text-transform:uppercase}.italic{font-style:italic}.leading-relaxed{line-height:1.625}.leading-tight{line-height:1.25}.tracking-\[0\.2em\]{letter-spacing:0.2em}.tracking-\[0\.3em\]{letter-spacing:0.3em}.tracking-\[0\.4em\]{letter-spacing:0.4em}.tracking-\[0\.5em\]{letter-spacing:0.5em}.tracking-tighter{letter-spacing:-0.05em}.tracking-widest{letter-spacing:0.1em}.text-\[\#69746E\]{--tw-text-opacity:1;color:rgb(105 116 110 / var(--tw-text-opacity, 1))}.text-\[\#69746E\]\/30{color:rgb(105 116 110 / 0.3)}.text-black{--tw-text-opacity:1;color:rgb(0 0 0 / var(--tw-text-opacity, 1))}.text-stone-300{--tw-text-opacity:1;color:rgb(214 211 209 / var(--tw-text-opacity, 1))}.text-stone-900{--tw-text-opacity:1;color:rgb(28 25 23 / var(--tw-text-opacity, 1))}.text-white{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1))}.antialiased{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}.opacity-0{opacity:0}.opacity-30{opacity:0.3}.opacity-50{opacity:0.5}.bg-blend-overlay{background-blend-mode:overlay}.shadow-2xl{--tw-shadow:0 25px 50px -12px rgb(0 0 0 / 0.25);--tw-shadow-colored:0 25px 50px -12px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-sm{--tw-shadow:0 1px 2px 0 rgb(0 0 0 / 0.05);--tw-shadow-colored:0 1px 2px 0 var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.outline-none{outline:2px solid transparent;outline-offset:2px}.blur-\[120px\]{--tw-blur:blur(120px);filter:var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow)}.grayscale{--tw-grayscale:grayscale(100%);filter:var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow)}.backdrop-blur-sm{--tw-backdrop-blur:blur(4px);-webkit-backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia)}.backdrop-blur-xl{--tw-backdrop-blur:blur(24px);-webkit-backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia)}.backdrop-blur-md{--tw-backdrop-blur:blur(12px);-webkit-backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia)}.transition{transition-property:color, background-color, border-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-text-decoration-color, -webkit-backdrop-filter;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-text-decoration-color, -webkit-backdrop-filter;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.transition-all{transition-property:all;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.transition-colors{transition-property:color, background-color, border-color, fill, stroke, -webkit-text-decoration-color;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke, -webkit-text-decoration-color;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.transition-opacity{transition-property:opacity;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.transition-transform{transition-property:transform;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.duration-1000{transition-duration:1000ms}.duration-200{transition-duration:200ms}.duration-300{transition-duration:300ms}.duration-500{transition-duration:500ms}.duration-700{transition-duration:700ms}.ease-\[cubic-bezier\(0\.23\2c 1\2c 0\.32\2c 1\)\]{transition-timing-function:cubic-bezier(0.23,1,0.32,1)}.hover\:-translate-y-1:hover{--tw-translate-y:-0.25rem;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.hover\:scale-100:hover{--tw-scale-x:1;--tw-scale-y:1;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.hover\:scale-105:hover{--tw-scale-x:1.05;--tw-scale-y:1.05;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.hover\:border-black:hover{--tw-border-opacity:1;border-color:rgb(0 0 0 / var(--tw-border-opacity, 1))}.hover\:bg-\[\#3F4C46\]:hover{--tw-bg-opacity:1;background-color:rgb(63 76 70 / var(--tw-bg-opacity, 1))}.hover\:bg-white\/10:hover{background-color:rgb(255 255 255 / 0.1)}.hover\:opacity-100:hover{opacity:1}.hover\:opacity-40:hover{opacity:0.4}.hover\:opacity-60:hover{opacity:0.6}.hover\:grayscale-0:hover{--tw-grayscale:grayscale(0);filter:var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow)}.focus\:border-black:focus{--tw-border-opacity:1;border-color:rgb(0 0 0 / var(--tw-border-opacity, 1))}.active\:scale-95:active{--tw-scale-x:.95;--tw-scale-y:.95;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.group:hover .group-hover\:w-7{width:1.75rem}.group:hover .group-hover\:scale-100{--tw-scale-x:1;--tw-scale-y:1;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.group:hover .group-hover\:scale-105{--tw-scale-x:1.05;--tw-scale-y:1.05;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.group:hover .group-hover\:bg-black{--tw-bg-opacity:1;background-color:rgb(0 0 0 / var(--tw-bg-opacity, 1))}.group:hover .group-hover\:bg-transparent{background-color:transparent}.group:hover .group-hover\:text-\[\#69746E\]{--tw-text-opacity:1;color:rgb(105 116 110 / var(--tw-text-opacity, 1))}.group:hover .group-hover\:text-white{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1))}.group:hover .group-hover\:opacity-100{opacity:1}.group:hover .group-hover\:opacity-40{opacity:0.4}@media (min-width: 640px){.sm\:flex-row{flex-direction:row}}@media (min-width: 768px){.md\:block{display:block}.md\:aspect-\[4\/5\]{aspect-ratio:4/5}.md\:w-\[400px\]{width:400px}.md\:grid-cols-2{grid-template-columns:repeat(2, minmax(0, 1fr))}.md\:gap-12{gap:3rem}.md\:gap-y-16{row-gap:4rem}.md\:space-y-8 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(2rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(2rem * var(--tw-space-y-reverse))}.md\:p-12{padding:3rem}.md\:px-12{padding-left:3rem;padding-right:3rem}.md\:pb-16{padding-bottom:4rem}.md\:text-4xl{font-size:2.25rem;line-height:2.5rem}.md\:text-7xl{font-size:4.5rem;line-height:1}.md\:text-8xl{font-size:6rem;line-height:1}.md\:text-xl{font-size:1.25rem;line-height:1.75rem}.md\:shadow-none{--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}}@media (min-width: 1024px){.lg\:sticky{position:sticky}.lg\:top-32{top:8rem}.lg\:order-1{order:1}.lg\:order-2{order:2}.lg\:mx-0{margin-left:0px;margin-right:0px}.lg\:mb-12{margin-bottom:3rem}.lg\:block{display:block}.lg\:h-\[700px\]{height:700px}.lg\:w-1\/2{width:50%}.lg\:grid-cols-2{grid-template-columns:repeat(2, minmax(0, 1fr))}.lg\:flex-row{flex-direction:row}.lg\:justify-start{justify-content:flex-start}.lg\:gap-10{gap:2.5rem}.lg\:gap-y-20{row-gap:5rem}.lg\:py-4{padding-top:1rem;padding-bottom:1rem}.lg\:text-left{text-align:left}}</style></head><body class="antialiased font-sans bg-[#FDFDFB] text-black" data-new-gr-c-s-check-loaded="14.1277.0" data-gr-ext-installed="">
+  --&gt;
+
+
+
+
+
+
+
+
+
+
+-projet SOS PAIZEI 100% edo me eikones xoris gray effect media active everywhere 
+
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>VOYAFLAIR | Cinematic Studio</title>
@@ -8,246 +57,8 @@
     <script src="https://cdn.tailwindcss.com"></script>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;600&family=Inter:wght@200;300;400;600&display=swap" rel="stylesheet">
-
-    <style>
-        html {
-            scroll-behavior: smooth;
-        }
-        body { background: #4A574F; 
-            
-        }
-        /* Custom scrollbar */
-        ::-webkit-scrollbar { width: 5px; }
-        ::-webkit-scrollbar-track { background: #000; }
-        ::-webkit-scrollbar-thumb { background: #4A574F; border-radius: 10px; }
-    </style>
-</head>
-<body >
-<main class="w-full min-h-screen grid grid-cols-1 gap-y-20 md:gap-y-32 lg:gap-y-40 pt-20 pb-20 md:pb-32">
-  
-    <section class="w-full bg-[#FDFDFB] py-24 border-t border-[#4A574F]/5">
-        <div class="max-w-screen-xl mx-auto px-6 flex flex-col items-center">
-            
-            <div class="w-full flex flex-col items-center text-center mb-20">
-                <h2 class="text-black text-[50px] leading-tight tracking-tighter font-light">
-                    My Works
-                </h2>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-24 w-full max-w-4xl mx-auto">
-                
-                <a href="innside.html" 
-                   class="flex flex-col items-center group cursor-pointer transition-transform duration-200 active:scale-95">
-                    <div class="w-full max-w-[320px] aspect-[2/3] overflow-hidden rounded-t-[1000px] rounded-b-xl mb-8 relative shadow-sm border border-[#4A574F]/10 bg-white">
-                        <img src="https://images.unsplash.com/photo-1563911302283-d2bc129e7570?auto=format&fit=crop&q=80&w=800" 
-                             alt="Innside by Melia Bangkok" 
-                             class="w-full h-full object-cover grayscale transition-all duration-1000 group-hover:grayscale-0 group-hover:scale-105">
-                        <div class="absolute inset-0 bg-black/5 group-hover:bg-transparent transition-colors duration-700"></div>
-                    </div>
-                    <h3 class="text-[13px] uppercase tracking-[0.2em] text-black font-semibold text-center group-hover:text-[#69746E] transition-colors">
-                        Innside by Melia Bangkok
-                    </h3>
-                </a>
-
-                <a href="casselbergh.html" 
-                   class="flex flex-col items-center group cursor-pointer transition-transform duration-200 active:scale-95">
-                    <div class="w-full max-w-[320px] aspect-[2/3] overflow-hidden rounded-t-[1000px] rounded-b-xl mb-8 relative shadow-sm border border-[#4A574F]/10 bg-white">
-                        <img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&q=80&w=800" 
-                             alt="Grand Hotel Casselbergh" 
-                             class="w-full h-full object-cover grayscale transition-all duration-1000 group-hover:grayscale-0 group-hover:scale-105">
-                        <div class="absolute inset-0 bg-black/5 group-hover:bg-transparent transition-colors duration-700"></div>
-                    </div>
-                    <h3 class="text-[13px] uppercase tracking-[0.2em] text-black font-semibold text-center group-hover:text-[#69746E] transition-colors">
-                        Grand Hotel Casselbergh
-                    </h3>
-                </a>
-
-            </div>
-        </div>
-    </section> 
-
-    <section class="w-full bg-[#FDFDFB] py-20 border-t border-[#4A574F]/5">
-        <div class="max-w-screen-xl mx-auto px-6">
-            
-            <div class="w-full flex flex-col items-center text-center mb-16 lg:mb-24">
-                <h2 class="text-black text-[50px] leading-tight tracking-tighter font-light mb-6">
-                    Work With Me
-                </h2>
-                <p class="text-[#69746E] text-[15px] leading-relaxed max-w-3xl">
-                    Collaborating with hotels, travel brands, and destinations, I focus on creating immersive visual stories that capture the unique atmosphere, character, and identity of each place — content designed to connect with audiences and inspire meaningful engagement.
-                </p>
-            </div>
-
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start">
-                
-                <div class="relative w-full h-[500px] lg:h-[700px] overflow-hidden rounded-2xl group lg:sticky lg:top-32">
-                    <img src="https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?auto=format&fit=crop&q=80&w=1000" 
-                         alt="Work With Me Collaboration" 
-                         class="w-full h-full object-cover grayscale transition-all duration-1000 group-hover:grayscale-0 scale-105 group-hover:scale-100 shadow-sm border border-[#4A574F]/10">
-                    <div class="absolute inset-0 bg-black/5"></div>
-                </div>
-
-                <div class="flex flex-col space-y-10 lg:py-4">
-                    
-                    <div>
-                        <h3 class="text-black text-sm uppercase tracking-[0.2em] font-semibold mb-4">
-                            Social Media Collaboration
-                        </h3>
-                        <p class="text-[#69746E] text-[15px] leading-relaxed">
-                            Strategic promotion across Instagram and other digital platforms through curated posts, reels, and stories designed to highlight destinations, hotels, and travel experiences in an authentic and visually engaging way.
-                        </p>
-                    </div>
-
-                    <div>
-                        <h3 class="text-black text-sm uppercase tracking-[0.2em] font-semibold mb-4">
-                            UGC-Style Content Creation
-                        </h3>
-                        <p class="text-[#69746E] text-[15px] leading-relaxed">
-                            Authentic yet visually refined photo and video content created for hotels, travel brands, and destinations. Packages can be tailored based on content deliverables, intended usage, social sharing, and licensing duration.
-                        </p>
-                    </div>
-
-                    <div>
-                        <h3 class="text-black text-sm uppercase tracking-[0.2em] font-semibold mb-4">
-                            Travel Guides & Editorial Features
-                        </h3>
-                        <p class="text-[#69746E] text-[15px] leading-relaxed">
-                            With the upcoming launch of the Voyaflair blog in May, destinations and properties will also have the opportunity to be featured through curated travel guides and editorial-style articles designed to offer deeper inspiration and storytelling.
-                        </p>
-                    </div>
-
-                    <div>
-                        <h3 class="text-black text-sm uppercase tracking-[0.2em] font-semibold mb-4">
-                            Press Trips & Destination Campaigns
-                        </h3>
-                        <p class="text-[#69746E] text-[15px] leading-relaxed">
-                            Open to participating in press trips and destination campaigns to showcase locations through immersive storytelling and visually driven content.
-                        </p>
-                    </div>
-
-                </div>
-            </div>
-
-        </div>
-    </section>
-
-    <footer class="w-full bg-[#FDFDFB] py-20 border-t border-[#4A574F]/5">
-        <div class="max-w-screen-xl mx-auto px-6">
-            
-            <div class="w-full flex flex-col items-center text-center mb-16">
-                <h2 class="text-black text-[50px] leading-tight tracking-tighter font-light mb-6">
-                    Let's Create Together
-                </h2>
-                <div class="text-[#69746E] text-[15px] space-y-2">
-                    <p>Get in touch by filling out the form below,</p>
-                    <p>or reach out via email at
-                        <a href="mailto:voyaflair@gmail.com" class="text-black font-semibold border-b border-black/20 hover:border-black transition-colors">
-                            voyaflair@gmail.com
-                        </a>
-                    </p>
-                </div>
-            </div>
-
-             <div class="max-w-5xl mx-auto mb-20"> 
-                <div class="flex flex-col lg:flex-row bg-white rounded-2xl shadow-sm border border-[#4A574F]/10 overflow-hidden">
-                    
-                    <div class="hidden lg:block lg:w-1/2 relative min-h-[600px] overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1492691523567-6170c240538f?auto=format&fit=crop&q=80&w=800" 
-                             alt="Cinematic Studio" 
-                             class="w-full h-full object-cover grayscale transition-all duration-1000 hover:grayscale-0 scale-105 hover:scale-100">
-                        <div class="absolute inset-0 bg-black/5"></div>
-                    </div>
-
-                    <div class="w-full lg:w-1/2 p-8 md:p-12 flex flex-col justify-center bg-white">
-                        <form action="https://formspree.io/f/mnjgwzrw" method="POST" class="flex flex-col space-y-4">
-                            
-                            <input type="text" name="first_name" placeholder="First Name" required 
-                                oninvalid="this.setCustomValidity('Please fill out your First Name.')"
-                                oninput="this.setCustomValidity('')"
-                                class="w-full bg-[#FDFDFB] border border-[#4A574F]/10 rounded-lg p-4 text-[15px] text-center outline-none focus:border-black transition-all">
-                            
-                            <input type="text" name="last_name" placeholder="Last Name" required 
-                                oninvalid="this.setCustomValidity('Please fill out your Last Name.')"
-                                oninput="this.setCustomValidity('')"
-                                class="w-full bg-[#FDFDFB] border border-[#4A574F]/10 rounded-lg p-4 text-[15px] text-center outline-none focus:border-black transition-all">
-
-                            <input type="email" name="email" placeholder="Email Address" required 
-                                oninvalid="this.setCustomValidity('Please enter a valid Email Address.')"
-                                oninput="this.setCustomValidity('')"
-                                class="w-full bg-[#FDFDFB] border border-[#4A574F]/10 rounded-lg p-4 text-[15px] text-center outline-none focus:border-black transition-all">
-                            
-                            <textarea name="message" rows="5" placeholder="Tell me about your project..." required 
-                                oninvalid="this.setCustomValidity('Please enter a message.')"
-                                oninput="this.setCustomValidity('')"
-                                class="w-full bg-[#FDFDFB] border border-[#4A574F]/10 rounded-lg p-4 text-[15px] text-center outline-none focus:border-black transition-all resize-none"></textarea>
-                            
-                            <button type="submit" 
-                                class="w-full bg-black text-white py-4 rounded-lg text-xs font-bold uppercase tracking-[0.2em] hover:bg-[#3F4C46] transition-all duration-300 cursor-pointer mt-2">
-                                Send Inquiry
-                            </button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-
-            <div class="flex flex-col items-center space-y-12">
-                <div class="flex items-center justify-center space-x-12">
-                    <a href="https://www.instagram.com/voyaflair" class="group flex flex-col items-center transition-all duration-500 transform hover:-translate-y-1">
-                        <div class="p-3 rounded-full bg-white shadow-sm border border-[#4A574F]/10 group-hover:bg-black group-hover:text-white transition-all duration-300">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
-                        </div>
-                        <span class="text-[9px] uppercase tracking-[0.2em] mt-3 text-[#69746E] font-medium opacity-50 group-hover:opacity-100 transition-opacity">Instagram</span>
-                    </a>
-
-                    <a href="https://www.tiktok.com/@voyaflair" class="group flex flex-col items-center transition-all duration-500 transform hover:-translate-y-1">
-                        <div class="p-3 rounded-full bg-white shadow-sm border border-[#4A574F]/10 group-hover:bg-black group-hover:text-white transition-all duration-300">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"></path></svg>
-                        </div>
-                        <span class="text-[9px] uppercase tracking-[0.2em] mt-3 text-[#69746E] font-medium opacity-50 group-hover:opacity-100 transition-opacity">TikTok</span>
-                    </a>
-
-                    <a href="https://www.facebook.com/voyaflair" class="group flex flex-col items-center transition-all duration-500 transform hover:-translate-y-1">
-                        <div class="p-3 rounded-full bg-white shadow-sm border border-[#4A574F]/10 group-hover:bg-black group-hover:text-white transition-all duration-300">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
-                        </div>
-                        <span class="text-[9px] uppercase tracking-[0.2em] mt-3 text-[#69746E] font-medium opacity-50 group-hover:opacity-100 transition-opacity">Facebook</span>
-                    </a>
-                </div>
-
-                <div class="text-[10px] text-[#69746E]/30 uppercase tracking-[0.5em] font-light">
-                    © 2026 VOYAFLAIR Cinematic Studio
-                </div>
-            </div>
-        </div>
-    </footer>
-
-</main>
-</body>
-</html>  -->
-
-palios kodikas edo ----------------------------->
-
-
-
-
-
-
-
-
--projet SOS PAIZEI 100% edo me eikones xoris gray effect media active everywhere <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VOYAFLAIR | Cinematic Studio</title>
-    
-    <script src="https://cdn.tailwindcss.com"></script>
-    
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;600&family=Inter:wght@200;300;400;600&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;600&amp;family=Inter:wght@200;300;400;600&amp;display=swap" rel="stylesheet">
 
     <style>
         html {
@@ -274,9 +85,11 @@ palios kodikas edo ----------------------------->
     transform: translateY(0);
 }
     </style>
-</head>
-<body class="antialiased font-sans bg-[#FDFDFB] text-black">
-<header><div id="side-menu-overlay" class="fixed inset-0 bg-black/5 backdrop-blur-sm z-[60] opacity-0 pointer-events-none transition-opacity duration-500"></div>
+
+
+<header>
+    
+    <div id="side-menu-overlay" class="fixed inset-0 bg-black/5 backdrop-blur-sm z-[60] opacity-0 pointer-events-none transition-opacity duration-500"></div>
 
 <aside id="side-menu" class="fixed top-0 right-0 h-full w-full md:w-[400px] bg-[#FDFDFB] z-[70] translate-x-full transition-transform duration-700 ease-[cubic-bezier(0.23,1,0.32,1)] border-l border-black/5 flex flex-col p-8 md:p-12 shadow-2xl md:shadow-none">
     
@@ -307,7 +120,7 @@ palios kodikas edo ----------------------------->
     </div>
 </aside>
 
-<header id="navbar" class="fixed top-0 w-full z-50 transition-all duration-700 py-8 px-6 md:px-12">
+<header id="navbar" class="fixed top-0 w-full z-50 transition-all duration-700 px-6 md:px-12 bg-[#FDFDFB]/90 backdrop-blur-md py-4 border-b border-black/5">
     <div class="max-w-screen-xl mx-auto flex justify-between items-center text-black">
         
         <a href="index.html" class="text-lg font-light tracking-[0.4em] uppercase hover:opacity-60 transition-opacity">
@@ -342,6 +155,34 @@ palios kodikas edo ----------------------------->
 
 
 
+<!-- hero starts here -->
+
+<div class="h-screen w-full bg-[url('YOUR_IMAGE_URL_HERE')] bg-cover bg-center bg-no-repeat bg-[#4A574F]/80 bg-blend-overlay flex items-center justify-center">
+    
+    <h1 class="font-['Instrument_Sans'] text-5xl md:text-8xl text-white font-semibold text-center tracking-tighter">
+        Welcome to Voyaflair
+    </h1>
+
+</div>
+
+<!-- ----------hero ends here---------------------------------------------- -->
+<!-- --------------------------------------------------------- -->
+<!-- --------------------------------------------------------- -->
+<!-- --------------------------------------------------------- -->
+<!-- --------------------------------------------------------- -->
+<!-- --------------------------------------------------------- -->
+<!-- --------------------------------------------------------- -->
+<!-- --------------------------------------------------------- -->
+<!-- --------------------------------------------------------- -->
+<!-- --------------------------------------------------------- -->
+<!-- --------------------------------------------------------- -->
+<!-- --------------------------------------------------------- -->
+
+
+
+
+
+
 <main class="w-full min-h-screen grid grid-cols-1 gap-y-10 md:gap-y-16 lg:gap-y-20 pt-10 pb-10 md:pb-16">
     
     <section class="w-full bg-[#FDFDFB] py-12 border-t border-[#4A574F]/5"> 
@@ -356,12 +197,9 @@ palios kodikas edo ----------------------------->
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 w-full max-w-4xl mx-auto">
                 
-                <a href="innside.html" 
-                   class="flex flex-col items-center group cursor-pointer transition-transform duration-200 active:scale-95">
+                <a href="innside.html" class="flex flex-col items-center group cursor-pointer transition-transform duration-200 active:scale-95">
                     <div class="w-full max-w-[320px] aspect-[2/3] overflow-hidden rounded-t-[1000px] rounded-b-xl mb-8 relative shadow-sm border border-[#4A574F]/10 bg-white">
-                        <img src="https://images.unsplash.com/photo-1563911302283-d2bc129e7570?auto=format&fit=crop&q=80&w=800" 
-                             alt="Innside by Melia Bangkok" 
-                             class="w-full h-full object-cover transition-all duration-1000 group-hover:scale-105">
+                        <img src="https://images.unsplash.com/photo-1563911302283-d2bc129e7570?auto=format&amp;fit=crop&amp;q=80&amp;w=800" alt="Innside by Melia Bangkok" class="w-full h-full object-cover transition-all duration-1000 group-hover:scale-105">
                         <div class="absolute inset-0 bg-black/5 group-hover:bg-transparent transition-colors duration-700"></div>
                     </div>
                     <h3 class="text-[13px] uppercase tracking-[0.2em] text-black font-semibold text-center group-hover:text-[#69746E] transition-colors">
@@ -369,12 +207,9 @@ palios kodikas edo ----------------------------->
                     </h3>
                 </a>
 
-                <a href="casselbergh.html" 
-                   class="flex flex-col items-center group cursor-pointer transition-transform duration-200 active:scale-95">
+                <a href="casselbergh.html" class="flex flex-col items-center group cursor-pointer transition-transform duration-200 active:scale-95">
                     <div class="w-full max-w-[320px] aspect-[2/3] overflow-hidden rounded-t-[1000px] rounded-b-xl mb-8 relative shadow-sm border border-[#4A574F]/10 bg-white">
-                        <img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&q=80&w=800" 
-                             alt="Grand Hotel Casselbergh" 
-                             class="w-full h-full object-cover transition-all duration-1000 group-hover:scale-105">
+                        <img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&amp;fit=crop&amp;q=80&amp;w=800" alt="Grand Hotel Casselbergh" class="w-full h-full object-cover transition-all duration-1000 group-hover:scale-105">
                         <div class="absolute inset-0 bg-black/5 group-hover:bg-transparent transition-colors duration-700"></div>
                     </div>
                     <h3 class="text-[13px] uppercase tracking-[0.2em] text-black font-semibold text-center group-hover:text-[#69746E] transition-colors">
@@ -401,9 +236,7 @@ palios kodikas edo ----------------------------->
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-10 items-start">
                 
                 <div class="relative w-full h-[500px] lg:h-[700px] overflow-hidden rounded-2xl group lg:sticky lg:top-32">
-                    <img src="https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?auto=format&fit=crop&q=80&w=1000" 
-                         alt="Work With Me Collaboration" 
-                         class="w-full h-full object-cover transition-all duration-1000 scale-105 group-hover:scale-100 shadow-sm border border-[#4A574F]/10">
+                    <img src="https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?auto=format&amp;fit=crop&amp;q=80&amp;w=1000" alt="Work With Me Collaboration" class="w-full h-full object-cover transition-all duration-1000 scale-105 group-hover:scale-100 shadow-sm border border-[#4A574F]/10">
                     <div class="absolute inset-0 bg-black/5"></div>
                 </div>
 
@@ -429,7 +262,7 @@ palios kodikas edo ----------------------------->
 
                     <div>
                         <h3 class="text-black text-sm uppercase tracking-[0.2em] font-semibold mb-4">
-                            Travel Guides & Editorial Features
+                            Travel Guides &amp; Editorial Features
                         </h3>
                         <p class="text-[#69746E] text-[15px] leading-relaxed">
                             With the upcoming launch of the Voyaflair blog in May, destinations and properties will also have the opportunity to be featured through curated travel guides and editorial-style articles designed to offer deeper inspiration and storytelling.
@@ -438,7 +271,7 @@ palios kodikas edo ----------------------------->
 
                     <div>
                         <h3 class="text-black text-sm uppercase tracking-[0.2em] font-semibold mb-4">
-                            Press Trips & Destination Campaigns
+                            Press Trips &amp; Destination Campaigns
                         </h3>
                         <p class="text-[#69746E] text-[15px] leading-relaxed">
                             Open to participating in press trips and destination campaigns to showcase locations through immersive storytelling and visually driven content.
@@ -472,37 +305,22 @@ palios kodikas edo ----------------------------->
                 <div class="flex flex-col lg:flex-row bg-white rounded-2xl shadow-sm border border-[#4A574F]/10 overflow-hidden">
                     
                     <div class="hidden lg:block lg:w-1/2 relative min-h-[600px] overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1492691523567-6170c240538f?auto=format&fit=crop&q=80&w=800" 
-                             alt="Cinematic Studio" 
-                             class="w-full h-full object-cover transition-all duration-1000 scale-105 hover:scale-100">
+                        <img src="https://images.unsplash.com/photo-1492691523567-6170c240538f?auto=format&amp;fit=crop&amp;q=80&amp;w=800" alt="Cinematic Studio" class="w-full h-full object-cover transition-all duration-1000 scale-105 hover:scale-100">
                         <div class="absolute inset-0 bg-black/5"></div>
                     </div>
 
                     <div class="w-full lg:w-1/2 p-8 md:p-12 flex flex-col justify-center bg-white">
                         <form action="https://formspree.io/f/mnjgwzrw" method="POST" class="flex flex-col space-y-4">
                             
-                            <input type="text" name="first_name" placeholder="First Name" required 
-                                oninvalid="this.setCustomValidity('Please fill out your First Name.')"
-                                oninput="this.setCustomValidity('')"
-                                class="w-full bg-[#FDFDFB] border border-[#4A574F]/10 rounded-lg p-4 text-[15px] text-center outline-none focus:border-black transition-all">
+                            <input type="text" name="first_name" placeholder="First Name" required="" oninvalid="this.setCustomValidity('Please fill out your First Name.')" oninput="this.setCustomValidity('')" class="w-full bg-[#FDFDFB] border border-[#4A574F]/10 rounded-lg p-4 text-[15px] text-center outline-none focus:border-black transition-all">
                             
-                            <input type="text" name="last_name" placeholder="Last Name" required 
-                                oninvalid="this.setCustomValidity('Please fill out your Last Name.')"
-                                oninput="this.setCustomValidity('')"
-                                class="w-full bg-[#FDFDFB] border border-[#4A574F]/10 rounded-lg p-4 text-[15px] text-center outline-none focus:border-black transition-all">
+                            <input type="text" name="last_name" placeholder="Last Name" required="" oninvalid="this.setCustomValidity('Please fill out your Last Name.')" oninput="this.setCustomValidity('')" class="w-full bg-[#FDFDFB] border border-[#4A574F]/10 rounded-lg p-4 text-[15px] text-center outline-none focus:border-black transition-all">
 
-                            <input type="email" name="email" placeholder="Email Address" required 
-                                oninvalid="this.setCustomValidity('Please enter a valid Email Address.')"
-                                oninput="this.setCustomValidity('')"
-                                class="w-full bg-[#FDFDFB] border border-[#4A574F]/10 rounded-lg p-4 text-[15px] text-center outline-none focus:border-black transition-all">
+                            <input type="email" name="email" placeholder="Email Address" required="" oninvalid="this.setCustomValidity('Please enter a valid Email Address.')" oninput="this.setCustomValidity('')" class="w-full bg-[#FDFDFB] border border-[#4A574F]/10 rounded-lg p-4 text-[15px] text-center outline-none focus:border-black transition-all">
                             
-                            <textarea name="message" rows="5" placeholder="Tell me about your project..." required 
-                                oninvalid="this.setCustomValidity('Please enter a message.')"
-                                oninput="this.setCustomValidity('')"
-                                class="w-full bg-[#FDFDFB] border border-[#4A574F]/10 rounded-lg p-4 text-[15px] text-center outline-none focus:border-black transition-all resize-none"></textarea>
+                            <textarea name="message" rows="5" placeholder="Tell me about your project..." required="" oninvalid="this.setCustomValidity('Please enter a message.')" oninput="this.setCustomValidity('')" class="w-full bg-[#FDFDFB] border border-[#4A574F]/10 rounded-lg p-4 text-[15px] text-center outline-none focus:border-black transition-all resize-none"></textarea>
                             
-                            <button type="submit" 
-                                class="w-full bg-black text-white py-4 rounded-lg text-xs font-bold uppercase tracking-[0.2em] hover:bg-[#3F4C46] transition-all duration-300 cursor-pointer mt-2">
+                            <button type="submit" class="w-full bg-black text-white py-4 rounded-lg text-xs font-bold uppercase tracking-[0.2em] hover:bg-[#3F4C46] transition-all duration-300 cursor-pointer mt-2">
                                 Send Inquiry
                             </button>
                         </form>
@@ -607,29 +425,25 @@ palios kodikas edo ----------------------------->
     };
 
 </script>
-</body>
-</html>  
+<!-- Code injected by live-server -->
+</header></body><grammarly-desktop-integration data-grammarly-shadow-root="true"><template shadowrootmode="open"><style>
+      div.grammarly-desktop-integration {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border: 0;
+        -moz-user-select: none;
+        -webkit-user-select: none;
+        -ms-user-select:none;
+        user-select:none;
+      }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+      div.grammarly-desktop-integration:before {
+        content: attr(data-content);
+      }
+    </style><div aria-label="grammarly-integration" role="group" tabindex="-1" class="grammarly-desktop-integration" data-content="{&quot;mode&quot;:&quot;full&quot;,&quot;isActive&quot;:true,&quot;isUserDisabled&quot;:false}"></div></template></grammarly-desktop-integration></html>
