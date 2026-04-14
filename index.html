@@ -17,6 +17,7 @@
         }
         body { 
             background-color: #FDFDFB; 
+            font-family: 'Inter', sans-serif;
         }
         /* Custom scrollbar */
         ::-webkit-scrollbar { width: 5px; }
@@ -36,7 +37,7 @@
     </style>
 </head>
 
-<body class="antialiased font-sans bg-[#FDFDFB] text-black">
+<body class="antialiased bg-[#FDFDFB] text-black">
 
     <div id="side-menu-overlay" class="fixed inset-0 bg-black/5 backdrop-blur-sm z-[60] opacity-0 pointer-events-none transition-opacity duration-500"></div>
 
@@ -72,18 +73,6 @@
                     </div>
                     <span class="text-[8px] uppercase tracking-[0.2em] mt-2 text-[#69746E] font-medium opacity-50 group-hover:opacity-100 transition-opacity">Instagram</span>
                 </a>
-                <a href="https://www.tiktok.com/@voyaflair" class="group flex flex-col items-center transition-all duration-500 transform hover:-translate-y-1">
-                    <div class="p-2.5 rounded-full bg-white shadow-sm border border-[#4A574F]/10 group-hover:bg-black group-hover:text-white transition-all duration-300">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"></path></svg>
-                    </div>
-                    <span class="text-[8px] uppercase tracking-[0.2em] mt-2 text-[#69746E] font-medium opacity-50 group-hover:opacity-100 transition-opacity">TikTok</span>
-                </a>
-                <a href="https://www.facebook.com/voyaflair" class="group flex flex-col items-center transition-all duration-500 transform hover:-translate-y-1">
-                    <div class="p-2.5 rounded-full bg-white shadow-sm border border-[#4A574F]/10 group-hover:bg-black group-hover:text-white transition-all duration-300">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
-                    </div>
-                    <span class="text-[8px] uppercase tracking-[0.2em] mt-2 text-[#69746E] font-medium opacity-50 group-hover:opacity-100 transition-opacity">Facebook</span>
-                </a>
             </div>
             <div class="text-[9px] uppercase tracking-[0.4em] opacity-30 font-light">
                 VOYAFLAIR STUDIO © 2026
@@ -91,10 +80,10 @@
         </div>
     </aside>
 
-    <header id="navbar" class="fixed top-0 w-full z-50 transition-all duration-700 px-6 md:px-12 py-8">
+    <header id="navbar" class="fixed top-0 w-full z-50 px-6 md:px-12 py-5 bg-[#FDFDFB]/90 backdrop-blur-md border-b border-black/5 transition-transform duration-500 ease-in-out">
         <div class="max-w-screen-xl mx-auto flex justify-between items-center text-black">
             
-            <a href="index.html" class="font-['VogueAvantGarde'] font-light tracking-[0.4em] uppercase hover:opacity-60 transition-opacity">
+            <a href="index.html" class="font-[Instrument\ Sans] font-light tracking-[0.4em] uppercase hover:opacity-60 transition-opacity">
                 VOYAFLAIR
             </a>
             
@@ -110,13 +99,15 @@
         </div>
     </header>
 
-    <div class="h-screen w-full bg-[url('YOUR_IMAGE_URL_HERE')] bg-cover bg-center bg-no-repeat bg-[#4A574F]/80 bg-blend-overlay flex items-center justify-center">
-        <h1 class="font-['VogueAvantGarde'] text-5xl md:text-8xl text-white font-semibold text-center tracking-tighter">
-            Welcome to Voyaflair
-        </h1>
-    </div>
+    <section class="relative h-screen w-full flex items-center justify-center bg-cover bg-center bg-no-repeat bg-[#4A574F]/80 bg-blend-overlay" style="background-image: url('./src/images/IMG_6226.jpg');">
+        <div class="relative z-10 px-4 text-center mt-10">
+            <h1 class="font-[Instrument\ Sans] text-5xl md:text-8xl text-white font-semibold tracking-tighter">
+                Welcome to Voyaflair
+            </h1>
+        </div>
+    </section>
 
-    <main class="w-full min-h-screen grid grid-cols-1 gap-y-10 md:gap-y-16 lg:gap-y-20 pt-10 pb-10 md:pb-16">
+    <main class="w-full min-h-screen pt-10 pb-16">
         
         <section class="w-full bg-[#FDFDFB] py-12 border-t border-[#4A574F]/5 reveal"> 
             <div class="max-w-screen-xl mx-auto px-6 flex flex-col items-center">
@@ -153,18 +144,16 @@
 
         <section class="w-full bg-[#FDFDFB] py-10 border-t border-[#4A574F]/5 reveal">
             <div class="max-w-screen-xl mx-auto px-6">
-                
                 <div class="w-full flex flex-col items-center text-center mb-8 lg:mb-12">
                     <h2 class="text-black text-[50px] leading-tight tracking-tighter font-light mb-4">
                         Work With Me
                     </h2>
                     <p class="text-[#69746E] text-[15px] leading-relaxed max-w-3xl">
-                        Collaborating with hotels, travel brands, and destinations, I focus on creating immersive visual stories that capture the unique atmosphere, character, and identity of each place — content designed to connect with audiences and inspire meaningful engagement.
+                        Collaborating with hotels, travel brands, and destinations, I focus on creating immersive visual stories that capture the unique atmosphere, character, and identity of each place.
                     </p>
                 </div>
 
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-10 items-start">
-                    
                     <div class="relative w-full h-[500px] lg:h-[700px] overflow-hidden rounded-2xl group lg:sticky lg:top-32">
                         <img src="https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?auto=format&fit=crop&q=80&w=1000" alt="Work With Me Collaboration" class="w-full h-full object-cover transition-all duration-1000 scale-105 group-hover:scale-100 shadow-sm border border-[#4A574F]/10">
                         <div class="absolute inset-0 bg-black/5"></div>
@@ -172,43 +161,15 @@
 
                     <div class="flex flex-col space-y-10 lg:py-4">
                         <div>
-                            <h3 class="text-black text-sm uppercase tracking-[0.2em] font-semibold mb-4">
-                                Social Media Collaboration
-                            </h3>
-                            <p class="text-[#69746E] text-[15px] leading-relaxed">
-                                Strategic promotion across Instagram and other digital platforms through curated posts, reels, and stories designed to highlight destinations, hotels, and travel experiences in an authentic and visually engaging way.
-                            </p>
+                            <h3 class="text-black text-sm uppercase tracking-[0.2em] font-semibold mb-4">Social Media Collaboration</h3>
+                            <p class="text-[#69746E] text-[15px] leading-relaxed">Strategic promotion across Instagram and other digital platforms through curated posts, reels, and stories.</p>
                         </div>
-
                         <div>
-                            <h3 class="text-black text-sm uppercase tracking-[0.2em] font-semibold mb-4">
-                                UGC-Style Content Creation
-                            </h3>
-                            <p class="text-[#69746E] text-[15px] leading-relaxed">
-                                Authentic yet visually refined photo and video content created for hotels, travel brands, and destinations. Packages can be tailored based on content deliverables, intended usage, social sharing, and licensing duration.
-                            </p>
-                        </div>
-
-                        <div>
-                            <h3 class="text-black text-sm uppercase tracking-[0.2em] font-semibold mb-4">
-                                Travel Guides & Editorial Features
-                            </h3>
-                            <p class="text-[#69746E] text-[15px] leading-relaxed">
-                                With the upcoming launch of the Voyaflair blog in May, destinations and properties will also have the opportunity to be featured through curated travel guides and editorial-style articles designed to offer deeper inspiration and storytelling.
-                            </p>
-                        </div>
-
-                        <div>
-                            <h3 class="text-black text-sm uppercase tracking-[0.2em] font-semibold mb-4">
-                                Press Trips & Destination Campaigns
-                            </h3>
-                            <p class="text-[#69746E] text-[15px] leading-relaxed">
-                                Open to participating in press trips and destination campaigns to showcase locations through immersive storytelling and visually driven content.
-                            </p>
+                            <h3 class="text-black text-sm uppercase tracking-[0.2em] font-semibold mb-4">UGC-Style Content Creation</h3>
+                            <p class="text-[#69746E] text-[15px] leading-relaxed">Authentic yet visually refined photo and video content created for hotels, travel brands, and destinations.</p>
                         </div>
                     </div>
                 </div>
-
             </div>
         </section>
 
@@ -216,39 +177,21 @@
 
     <footer id="contact" class="w-full bg-[#FDFDFB] py-10 border-t border-[#4A574F]/5 reveal">
         <div class="max-w-screen-xl mx-auto px-6">
-            
             <div class="w-full flex flex-col items-center text-center mb-8">
                 <h2 class="text-black text-[50px] leading-tight tracking-tighter font-light mb-4">
                     Let's Create Together
                 </h2>
-                <div class="text-[#69746E] text-[15px] space-y-2">
-                    <p>Get in touch by filling out the form below,</p>
-                    <p>or reach out via email at
-                        <a href="mailto:voyaflair@gmail.com" class="text-black font-semibold border-b border-black/20 hover:border-black transition-colors">
-                            voyaflair@gmail.com
-                        </a>
-                    </p>
-                </div>
             </div>
-
              <div class="max-w-5xl mx-auto mb-10"> 
                 <div class="flex flex-col lg:flex-row bg-white rounded-2xl shadow-sm border border-[#4A574F]/10 overflow-hidden">
-                    
                     <div class="hidden lg:block lg:w-1/2 relative min-h-[600px] overflow-hidden">
                         <img src="https://images.unsplash.com/photo-1492691523567-6170c240538f?auto=format&fit=crop&q=80&w=800" alt="Cinematic Studio" class="w-full h-full object-cover transition-all duration-1000 scale-105 hover:scale-100">
-                        <div class="absolute inset-0 bg-black/5"></div>
                     </div>
-
                     <div class="w-full lg:w-1/2 p-8 md:p-12 flex flex-col justify-center bg-white">
                         <form action="https://formspree.io/f/mnjgwzrw" method="POST" class="flex flex-col space-y-4">
-                            <input type="text" name="first_name" placeholder="First Name" required oninvalid="this.setCustomValidity('Please fill out your First Name.')" oninput="this.setCustomValidity('')" class="w-full bg-[#FDFDFB] border border-[#4A574F]/10 rounded-lg p-4 text-[15px] text-center outline-none focus:border-black transition-all">
-                            
-                            <input type="text" name="last_name" placeholder="Last Name" required oninvalid="this.setCustomValidity('Please fill out your Last Name.')" oninput="this.setCustomValidity('')" class="w-full bg-[#FDFDFB] border border-[#4A574F]/10 rounded-lg p-4 text-[15px] text-center outline-none focus:border-black transition-all">
-
-                            <input type="email" name="email" placeholder="Email Address" required oninvalid="this.setCustomValidity('Please enter a valid Email Address.')" oninput="this.setCustomValidity('')" class="w-full bg-[#FDFDFB] border border-[#4A574F]/10 rounded-lg p-4 text-[15px] text-center outline-none focus:border-black transition-all">
-                            
-                            <textarea name="message" rows="5" placeholder="Tell me about your project..." required oninvalid="this.setCustomValidity('Please enter a message.')" oninput="this.setCustomValidity('')" class="w-full bg-[#FDFDFB] border border-[#4A574F]/10 rounded-lg p-4 text-[15px] text-center outline-none focus:border-black transition-all resize-none"></textarea>
-                            
+                            <input type="text" name="first_name" placeholder="First Name" required class="w-full bg-[#FDFDFB] border border-[#4A574F]/10 rounded-lg p-4 text-[15px] text-center outline-none focus:border-black transition-all">
+                            <input type="email" name="email" placeholder="Email Address" required class="w-full bg-[#FDFDFB] border border-[#4A574F]/10 rounded-lg p-4 text-[15px] text-center outline-none focus:border-black transition-all">
+                            <textarea name="message" rows="5" placeholder="Tell me about your project..." required class="w-full bg-[#FDFDFB] border border-[#4A574F]/10 rounded-lg p-4 text-[15px] text-center outline-none focus:border-black transition-all resize-none"></textarea>
                             <button type="submit" class="w-full bg-black text-white py-4 rounded-lg text-xs font-bold uppercase tracking-[0.2em] hover:bg-[#3F4C46] transition-all duration-300 cursor-pointer mt-2">
                                 Send Inquiry
                             </button>
@@ -256,31 +199,7 @@
                     </div>
                 </div>
             </div>
-
             <div class="flex flex-col items-center space-y-6">
-                <div class="flex items-center justify-center space-x-12">
-                    <a href="https://www.instagram.com/voyaflair" class="group flex flex-col items-center transition-all duration-500 transform hover:-translate-y-1">
-                        <div class="p-3 rounded-full bg-white shadow-sm border border-[#4A574F]/10 group-hover:bg-black group-hover:text-white transition-all duration-300">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
-                        </div>
-                        <span class="text-[9px] uppercase tracking-[0.2em] mt-3 text-[#69746E] font-medium opacity-50 group-hover:opacity-100 transition-opacity">Instagram</span>
-                    </a>
-
-                    <a href="https://www.tiktok.com/@voyaflair" class="group flex flex-col items-center transition-all duration-500 transform hover:-translate-y-1">
-                        <div class="p-3 rounded-full bg-white shadow-sm border border-[#4A574F]/10 group-hover:bg-black group-hover:text-white transition-all duration-300">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"></path></svg>
-                        </div>
-                        <span class="text-[9px] uppercase tracking-[0.2em] mt-3 text-[#69746E] font-medium opacity-50 group-hover:opacity-100 transition-opacity">TikTok</span>
-                    </a>
-
-                    <a href="https://www.facebook.com/voyaflair" class="group flex flex-col items-center transition-all duration-500 transform hover:-translate-y-1">
-                        <div class="p-3 rounded-full bg-white shadow-sm border border-[#4A574F]/10 group-hover:bg-black group-hover:text-white transition-all duration-300">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
-                        </div>
-                        <span class="text-[9px] uppercase tracking-[0.2em] mt-3 text-[#69746E] font-medium opacity-50 group-hover:opacity-100 transition-opacity">Facebook</span>
-                    </a>
-                </div>
-
                 <div class="text-[10px] text-[#69746E]/30 uppercase tracking-[0.5em] font-light">
                     © 2026 VOYAFLAIR Cinematic Studio
                 </div>
@@ -290,10 +209,7 @@
 
     <script> 
         // 1. Intersection Observer for Scroll Animations
-        const observerOptions = {
-            threshold: 0.1 
-        };
-
+        const observerOptions = { threshold: 0.1 };
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -301,10 +217,9 @@
                 }
             });
         }, observerOptions);
-
         document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-        // 2. Side Menu Logic
+        // 2. Variables setup
         const navbar = document.getElementById('navbar');
         const sideMenu = document.getElementById('side-menu');
         const overlay = document.getElementById('side-menu-overlay');
@@ -313,30 +228,31 @@
         const workTrigger = document.getElementById('work-trigger');
         const workDropdown = document.getElementById('work-dropdown');
 
-        // Scroll Effect (Glassmorphism)
+        // 3. Smart Navbar Logic
+        let lastScrollY = window.scrollY;
         window.addEventListener('scroll', () => {
-            if (window.scrollY > 40) {
-                navbar.classList.add('bg-[#FDFDFB]/90', 'backdrop-blur-md', 'py-4', 'border-b', 'border-black/5');
-                navbar.classList.remove('py-8');
+            if (lastScrollY < window.scrollY && window.scrollY > 100) {
+                // Χρήστης κατεβαίνει -> Κρύψε
+                navbar.style.transform = 'translateY(-100%)';
             } else {
-                navbar.classList.remove('bg-[#FDFDFB]/90', 'backdrop-blur-md', 'py-4', 'border-b', 'border-black/5');
-                navbar.classList.add('py-8');
+                // Χρήστης ανεβαίνει -> Εμφάνισε
+                navbar.style.transform = 'translateY(0)';
             }
+            lastScrollY = window.scrollY;
         });
 
-        // Toggle Side Menu
+        // 4. Side Menu Logic
         const toggleMenu = (isOpen) => {
             sideMenu.classList.toggle('translate-x-full', !isOpen);
             overlay.classList.toggle('opacity-100', isOpen);
             overlay.classList.toggle('pointer-events-none', !isOpen);
             document.body.style.overflow = isOpen ? 'hidden' : 'auto'; 
         };
-
         openBtn.onclick = () => toggleMenu(true);
         closeBtn.onclick = () => toggleMenu(false);
         overlay.onclick = () => toggleMenu(false);
 
-        // Toggle Work Dropdown
+        // 5. Work Dropdown Logic
         workTrigger.onclick = (e) => {
             e.stopPropagation();
             workDropdown.classList.toggle('hidden');
